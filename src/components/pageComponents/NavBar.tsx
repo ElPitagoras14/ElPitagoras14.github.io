@@ -93,15 +93,15 @@ export const NavBar = () => {
               value="item-1"
               className="py-0 sm:py-1 px-2 sm:px-5 md:px-8 lg:px-12"
             >
-              <div className="flex justify-between items-center">
+              <div className="flex justify-between items-center pl-4">
                 <Avatar size="lg">
                   <AvatarImage src="/profile.png" />
                   <AvatarFallback>JG</AvatarFallback>
                 </Avatar>
-                <div className="flex space-x-0 items-center">
+                <div className="flex space-x-2 items-center">
                   <ModeToggle isMobile></ModeToggle>
                   <AccordionTrigger noIcon>
-                    <Button variant={null}>
+                    <Button variant={null} className="px-2">
                       <IconMenu2 size={24} />
                     </Button>
                   </AccordionTrigger>
@@ -117,7 +117,7 @@ export const NavBar = () => {
         ) : (
           <>
             <div className="flex justify-between py-4 px-2 sm:px-5 md:px-8 lg:px-12">
-              <div className="flex space-x-6 items-center">
+              <div className="flex space-x-0 sm:space-x-2 md:space-x-4 lg:space-x-6 items-center">
                 <Avatar size="lg">
                   <AvatarImage src="/profile.png" />
                   <AvatarFallback>JG</AvatarFallback>
