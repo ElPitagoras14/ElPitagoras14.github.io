@@ -9,7 +9,7 @@ import { Footer } from "@/components/pageComponents/Footer";
 
 const SectionSeparator = () => {
   return (
-    <div className="px-12 mt-8">
+    <div className="px-4 md:px-12 mt-8">
       <Separator />
     </div>
   );

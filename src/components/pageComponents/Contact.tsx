@@ -2,13 +2,14 @@
 
 import { Card, CardContent } from "../ui/card";
 import { TypographyP, TypographyH6, TypographyH2 } from "../ui/typography";
-import { Separator } from "../ui/separator";
 import { Form } from "../ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Field } from "../Field";
 import { Button } from "../ui/button";
+import axios from "axios";
+import { TitleSeparator } from "../TitleSeparator";
 
 const formFields = [
   {
@@ -52,24 +53,26 @@ export const Contact = () => {
   });
 
   const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+    axios
+      .post("https://formspree.io/f/mvoygrrb", data)
+      .then(() => {
+        form.reset();
+      })
+      .catch(() => {});
   };
 
   return (
     <section
-      className="flex flex-col items-center justify-center space-y-12 p-12"
+      className="flex flex-col px-4 md:px-24 pt-12 pb-4 md:py-12 space-y-12"
       id="contact"
     >
-      <div className="flex flex-col items-center space-y-5">
+      <div className="flex flex-col items-center space-y-5 text-center">
         <TypographyH2>Contact Me</TypographyH2>
-        <Separator
-          className="w-10 py-1 rounded-sm"
-          style={{ backgroundColor: "hsl(var(--primary))" }}
-        />
-        <TypographyP>Feel free to contact me.</TypographyP>
+        <TitleSeparator />
+        <TypographyP className="w-[70%]">Feel free to contact me.</TypographyP>
       </div>
-      <Card className="w-[60%] text-lg shadow">
-        <CardContent className="py-4">
+      <Card className="w-[100%] lg:w-[60%] text-lg shadow self-center">
+        <CardContent className="py-2 md:py-4">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(onSubmit)}

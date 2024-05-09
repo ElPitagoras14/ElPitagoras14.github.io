@@ -1,50 +1,25 @@
-import { Button } from "../ui/button";
-import { Card } from "../ui/card";
-import { Separator } from "../ui/separator";
-import {
-  TypographyH1,
-  TypographyH2,
-  TypographyH5,
-  TypographyP,
-} from "../ui/typography";
+import { ItemInfo } from "../ItemInfo";
+import { TitleSeparator } from "../TitleSeparator";
+import { TypographyH2, TypographyP } from "../ui/typography";
 import { projects } from "@/data/projects";
-import Image from "next/image";
 
 export const Project = () => {
   return (
-    <section className="flex flex-col items-center justify-center space-y-12 p-12" id="projects">
-      <div className="flex flex-col items-center space-y-5">
-        <TypographyH2>Project</TypographyH2>
-        <Separator
-          className="w-10 py-1 rounded-sm"
-          style={{ backgroundColor: "hsl(var(--primary))" }}
-        />
-        <TypographyP>
+    <section
+      className="flex flex-col px-4 md:px-24 pt-12 md:py-12 space-y-12"
+      id="projects"
+    >
+      <div className="flex flex-col items-center space-y-5 text-center">
+        <TypographyH2>Projects</TypographyH2>
+        <TitleSeparator />
+        <TypographyP className="w-[70%]">
           Learn more about the main projects I've worked on.
         </TypographyP>
       </div>
-      <div className="flex flex-col px-12 space-y-12">
+      <div className="flex flex-col px-4 md:px-12 space-y-8 md:space-y-16">
         {projects.map((project) => {
-          const { title, description, cover, id } = project;
-          return (
-            <Card className="flex shadow" key={id}>
-              <Image
-                src={cover}
-                alt={title}
-                className="w-[50%] rounded-lg"
-                width={700}
-                height={100}
-                sizes="100vw"
-              ></Image>
-              <div className="self-center w-[50%] p-6 pl-12">
-                <TypographyH2>{title}</TypographyH2>
-                <TypographyP>{description}</TypographyP>
-                <Button className="mt-6" size={"xl"}>
-                  <TypographyH5>Case Study</TypographyH5>
-                </Button>
-              </div>
-            </Card>
-          );
+          const { id } = project;
+          return <ItemInfo key={id} item={project}></ItemInfo>;
         })}
       </div>
     </section>

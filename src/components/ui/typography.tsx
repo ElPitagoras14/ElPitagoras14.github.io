@@ -29,7 +29,7 @@ export function TypographyH2({
   return (
     <h2
       className={cn(
-        "scroll-m-20 pb-2 text-4xl font-semibold tracking-tight first:mt-0",
+        "scroll-m-20 pb-2 text-2xl md:text-4xl font-semibold tracking-tight first:mt-0",
         className
       )}
     >
@@ -48,7 +48,7 @@ export function TypographyH3({
   return (
     <h3
       className={cn(
-        "scroll-m-20 text-2xl font-semibold tracking-tight",
+        "scroll-m-20 text-lg md:text-2xl font-semibold tracking-tight",
         className
       )}
     >
@@ -67,7 +67,7 @@ export function TypographyH4({
   return (
     <h4
       className={cn(
-        "scroll-m-20 text-xl font-semibold tracking-tight",
+        "scroll-m-20 text-base md:text-lg font-semibold tracking-tight",
         className
       )}
     >
@@ -86,7 +86,7 @@ export function TypographyH5({
   return (
     <h5
       className={cn(
-        "scroll-m-20 text-lg font-semibold tracking-tight",
+        "scroll-m-20 text-base md:text-lg font-semibold tracking-tight",
         className
       )}
     >
@@ -183,7 +183,9 @@ export function TypographySmall({
   className?: string;
 }>) {
   return (
-    <small className={cn("text-sm font-medium leading-6", className)}>
+    <small
+      className={cn("text-xs nd:text-sm font-medium leading-6", className)}
+    >
       {children}
     </small>
   );

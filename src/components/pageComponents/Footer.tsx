@@ -1,28 +1,23 @@
-import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
 import { TypographyH4, TypographySmall } from "../ui/typography";
+import { SocialMedia } from "../SocialMedia";
 
 export const Footer = () => {
   return (
-    <footer className="p-12">
-      <div className="flex justify-between px-12">
-        <div className="flex flex-col space-y-6 w-[40%]">
+    <footer className="px-2 py-8 md:p-12">
+      <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 justify-normal md:justify-between px-4 md:px-12">
+        <div className="flex flex-col space-y-2 md:space-y-6 w-[100%] md:w-[40%]">
           <TypographyH4>Jonathan García</TypographyH4>
           <TypographySmall>
             Computer Science Engineer | Full Stack Developer | Salesforce
             Developer | Algorithm Design Enjoyer | Videogames Enjoyer
           </TypographySmall>
         </div>
-        <div className="flex flex-col pl-12 space-y-4">
+        <div className="flex flex-col pl-0 md:pl-12 space-y-4">
           <TypographyH4>Social</TypographyH4>
-          <div className="flex space-x-6">
-            <Linkedin />
-            <Github />
-            <Twitter />
-            <Instagram />
-          </div>
+          <SocialMedia />
         </div>
       </div>
-      <div className="flex justify-center mt-16">
+      <div className="text-center mt-12 md:mt-16">
         <TypographySmall>
           © 2024 Jonathan García. All rights reserved.
         </TypographySmall>

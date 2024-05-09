@@ -15,6 +15,7 @@ export const projects = [
     description:
       "UrbaPass Backend is a REST API that will allow communication between the company client and server, facilitating interaction and obtaining data through requests with the HTTP protocol.",
     cover: coverUrbapass,
+    page: "/projects/urbapass",
     images: [urbapassImg1],
   },
   {
@@ -23,6 +24,7 @@ export const projects = [
     description:
       "Code written in python where the algorithm for IP segmentation with FLSM and VLSM techniques is used.",
     cover: coverSubnetting,
+    page: "/projects/subnetting",
     images: [],
   },
   {
@@ -31,6 +33,7 @@ export const projects = [
     description:
       "PPL Adventure is a game made with Unity set in the ESPOL campus as part of the Taws club's new member admission project. In this project I acted as a mentor of the team where I guided the approach of the project.",
     cover: coverPpl,
+    page: "/projects/ppl",
     images: [pplImg1, pplImg2, pplImg3, pplImg4, pplImg5],
   },
 ];
