@@ -93,15 +93,15 @@ export const NavBar = () => {
               value="item-1"
               className="py-0 sm:py-1 px-2 sm:px-5 md:px-8 lg:px-12"
             >
-              <div className="flex justify-between items-center pl-4">
+              <div className="flex justify-between items-center pl-1">
                 <Avatar size="lg">
                   <AvatarImage src="/profile.png" />
                   <AvatarFallback>JG</AvatarFallback>
                 </Avatar>
-                <div className="flex space-x-2 items-center">
+                <div className="flex space-x-1 items-center">
                   <ModeToggle isMobile></ModeToggle>
                   <AccordionTrigger noIcon>
-                    <Button variant={null} className="px-2">
+                    <Button variant={null} className="pr-2">
                       <IconMenu2 size={24} />
                     </Button>
                   </AccordionTrigger>
