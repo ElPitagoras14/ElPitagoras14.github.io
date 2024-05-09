@@ -25,7 +25,11 @@ export const Field = ({ formInfo, form }: FormFieldProps) => {
           <FormLabel>{label}</FormLabel>
           <FormControl>
             {type === "textarea" ? (
-              <Textarea className="h-[25vh]" placeholder={placeholder} {...field} />
+              <Textarea
+                className="h-[25vh]"
+                placeholder={placeholder}
+                {...field}
+              />
             ) : (
               <Input type={type} placeholder={placeholder} {...field} />
             )}

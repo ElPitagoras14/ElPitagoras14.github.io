@@ -23,3 +23,11 @@ export const skills = [
   "Seaborn",
   "Unity",
 ];
+
+export const socialMedia = {
+  linkedin: "https://www.linkedin.com/in/jonathan-garcia-elpi/",
+  github: "https://github.com/ElPitagoras14",
+  instagram: "https://www.instagram.com/_afjhony/",
+  leetcode: "https://leetcode.com/u/ElPitagoras14/",
+  x: "https://twitter.com/ElPitagoras14",
+};
