@@ -1,6 +1,6 @@
 import { Hero } from "@/components/pageComponents/Hero";
 import { AboutMe } from "@/components/pageComponents/AboutMe";
-import { NavBar } from "@/components/pageComponents/NavBar";
+import { Header } from "@/components/pageComponents/Header";
 import { Separator } from "@/components/ui/separator";
 import { Project } from "@/components/pageComponents/Project";
 import { Awards } from "@/components/pageComponents/Awards";
@@ -15,10 +15,43 @@ const SectionSeparator = () => {
   );
 };
 
+const infoLinks = [
+  {
+    label: "Home",
+    url: "#home",
+    id: "home",
+    isSamePage: true,
+  },
+  {
+    label: "About",
+    url: "#about",
+    id: "about",
+    isSamePage: true,
+  },
+  {
+    label: "Projects",
+    url: "#projects",
+    id: "projects",
+    isSamePage: true,
+  },
+  {
+    label: "Awards",
+    url: "#awards",
+    id: "awards",
+    isSamePage: true,
+  },
+  {
+    label: "Contact",
+    url: "#contact",
+    id: "contact",
+    isSamePage: true,
+  },
+];
+
 export default function Home() {
   return (
     <>
-      <NavBar></NavBar>
+      <Header infoLinks={infoLinks}></Header>
       <main id="home">
         <Hero></Hero>
         <SectionSeparator />
