@@ -4,7 +4,25 @@
     pkgs.nodejs_20
   ];
   idx.extensions = [
-
+    "bradlc.vscode-tailwindcss"
+    "chamboug.js-auto-backticks"
+    "christian-kohler.path-intellisense"
+    "dbaeumer.vscode-eslint"
+    "DominicVonk.parameter-hints"
+    "dsznajder.es7-react-js-snippets"
+    "eamodio.gitlens"
+    "ecmel.vscode-html-css"
+    "esbenp.prettier-vscode"
+    "github.vscode-github-actions"
+    "khan.two-monokai"
+    "moalamri.inline-fold"
+    "PKief.material-icon-theme"
+    "ritwickdey.LiveServer"
+    "shardulm94.trailing-spaces"
+    "standard.vscode-standard"
+    "stylelint.vscode-stylelint"
+    "usernamehw.errorlens"
+    "YoavBls.pretty-ts-errors"
   ];
   idx.previews = {
     previews = {
