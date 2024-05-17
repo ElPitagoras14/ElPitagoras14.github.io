@@ -26,11 +26,11 @@ export const Hero = () => {
           Developer | Algorithm Design Enjoyer | Videogames Enjoyer
         </TypographyH3>
         <SocialMedia />
-        <Button size={isMobile ? "xl" : "2xl"}>
-          <Link href="/files/resume.pdf" target="_blank">
+        <Link href="/files/resume.pdf" target="_blank">
+          <Button size={isMobile ? "xl" : "2xl"}>
             <TypographyH4>Download CV</TypographyH4>
-          </Link>
-        </Button>
+          </Button>
+        </Link>
       </div>
       {!isMobile && (
         <div className="flex justify-center">
