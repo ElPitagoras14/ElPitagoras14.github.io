@@ -20,7 +20,7 @@ export const AboutMe = () => {
 
   return (
     <section
-      className="flex flex-col px-4 md:px-24 pt-12 md:py-12 space-y-12"
+      className="flex flex-col px-12 md:px-24 pt-12 md:py-12 space-y-12"
       id="about"
     >
       <div className="flex flex-col items-center space-y-5 text-center">

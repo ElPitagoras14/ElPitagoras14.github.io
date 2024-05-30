@@ -63,7 +63,7 @@ export const Contact = () => {
 
   return (
     <section
-      className="flex flex-col px-4 md:px-24 pt-12 pb-4 md:py-12 space-y-12"
+      className="flex flex-col px-12 md:px-24 pt-12 pb-4 md:py-12 space-y-12"
       id="contact"
     >
       <div className="flex flex-col items-center space-y-5 text-center">

@@ -3,7 +3,7 @@ import { SocialMedia } from "../SocialMedia";
 
 export const Footer = () => {
   return (
-    <footer className="px-2 py-8 md:p-12">
+    <footer className="px-4 py-8 md:p-12">
       <div className="flex flex-col md:flex-row space-y-6 md:space-y-0 justify-normal md:justify-between px-4 md:px-12">
         <div className="flex flex-col space-y-2 md:space-y-6 w-[100%] md:w-[40%]">
           <TypographyH4>Jonathan García</TypographyH4>

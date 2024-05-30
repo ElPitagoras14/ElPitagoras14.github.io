@@ -7,7 +7,7 @@ import { TitleSeparator } from "../TitleSeparator";
 
 export const Awards = () => {
   return (
-    <section className="flex flex-col px-4 md:px-24 pt-12 md:py-12 space-y-12">
+    <section className="flex flex-col px-12 md:px-24 pt-12 md:py-12 space-y-12">
       <div
         className="flex flex-col items-center space-y-5 text-center"
         id="awards"

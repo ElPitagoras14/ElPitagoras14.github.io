@@ -1,8 +1,8 @@
 "use client";
 
-import { Navigation } from "../Navigation";
 import { NavBar } from "../NavBar";
 import { InfoLinks } from "@/utils/interfaces";
+import { Navigation } from "../Navigation";
 
 interface HeaderProps {
   infoLinks: InfoLinks[];
