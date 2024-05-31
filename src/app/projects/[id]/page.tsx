@@ -1,6 +1,8 @@
 import { Gallery } from "@/components/pageComponents/Gallery";
 import { Header } from "@/components/pageComponents/Header";
 import { ProjectInfo } from "@/components/pageComponents/ProjectInfo";
+import { Reference } from "@/components/pageComponents/Reference";
+import { TechStack } from "@/components/pageComponents/TechStack";
 import { projects, indexedProjects } from "@/data/projects";
 
 const infoLinks = [
@@ -29,13 +31,15 @@ export function generateStaticParams() {
 const SingleProject = ({ params }: SingleProjectProps) => {
   const { id } = params;
   const currProject = indexedProjects[id];
-  const { title, description, images } = currProject;
+  const { title, description, images, technologies, links } = currProject;
 
   return (
     <>
       <Header infoLinks={infoLinks}></Header>
       <main>
         <ProjectInfo title={title} description={description}></ProjectInfo>
+        <TechStack technologies={technologies}></TechStack>
+        <Reference links={links}></Reference>
         <Gallery images={images}></Gallery>
       </main>
     </>
