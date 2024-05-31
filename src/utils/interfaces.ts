@@ -17,4 +17,12 @@ export interface Project {
   year: string;
   madeAt: string;
   technologies: string[];
+  links: {
+    live?: string;
+    code: {
+      label: string;
+      url: string;
+    }[];
+    documentation?: string;
+  }
 }

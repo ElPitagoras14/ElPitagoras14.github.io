@@ -81,6 +81,15 @@ export const projects: Project[] = [
       "Game Development",
       "2D Design",
     ],
+    links: {
+      live: "https://elpitagoras.itch.io/ppl-adventure",
+      code: [
+        {
+          label: "Main code",
+          url: "https://github.com/Taws-Espol/PreTawsG5-Unity",
+        },
+      ],
+    },
   },
   {
     id: "subnettingAlgorithm",
@@ -99,6 +108,23 @@ export const projects: Project[] = [
       "Typescript",
       "Algorithm Design",
     ],
+    links: {
+      live: "https://elpitagoras14.github.io/subnetting-static-web/",
+      code: [
+        {
+          label: "FrontEnd",
+          url: "https://github.com/ElPitagoras14/subnetting-web"
+        },
+        {
+          label: "BackEnd",
+          url: "https://github.com/ElPitagoras14/subnetting-api"
+        },
+        {
+          label: "Static Website",
+          url: "https://github.com/ElPitagoras14/subnetting-static-web"
+        }
+      ],
+    },
   },
   {
     id: "urbapassBackend",
@@ -120,6 +146,14 @@ export const projects: Project[] = [
       "Sequelize",
       "JWT",
     ],
+    links: {
+      code: [
+        {
+          label: "Main code",
+          url: "https://github.com/ElPitagoras14/backend-urbapass"
+        }
+      ]
+    }
   },
 ];
 
