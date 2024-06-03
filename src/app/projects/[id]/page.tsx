@@ -5,6 +5,7 @@ import { ProjectInfo } from "@/components/pageComponents/ProjectInfo";
 import { Reference } from "@/components/pageComponents/Reference";
 import { TechStack } from "@/components/pageComponents/TechStack";
 import { projects, indexedProjects } from "@/data/projects";
+import { Metadata } from "next";
 
 const infoLinks = [
   {
@@ -27,6 +28,20 @@ interface SingleProjectProps {
 
 export function generateStaticParams() {
   return projects.map((project) => ({ id: project.page.split("/")[2] }));
+}
+
+interface Props {
+  params: { id: string };
+}
+
+export function generateMetadata({ params }: Props): Metadata {
+  const id = params.id;
+  const currProject = indexedProjects[id];
+  const { title } = currProject;
+
+  return {
+    title,
+  };
 }
 
 const SingleProject = ({ params }: SingleProjectProps) => {
