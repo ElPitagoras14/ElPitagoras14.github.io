@@ -55,7 +55,7 @@ const SingleProject = ({ params }: SingleProjectProps) => {
       <main>
         <ProjectInfo title={title} description={description}></ProjectInfo>
         <SectionSeparator></SectionSeparator>
-        <div className="md:grid md:grid-cols-2 px-12 md:px-24 pt-12 md:pt-12 space-y-6 md:space-y-0">
+        <div className="lg:grid lg:grid-cols-2 px-12 md:px-24 pt-12 space-y-6 lg:space-y-0">
           <TechStack technologies={technologies}></TechStack>
           <Reference links={links}></Reference>
         </div>

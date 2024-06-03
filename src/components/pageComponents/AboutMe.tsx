@@ -6,7 +6,6 @@ import { Button } from "../ui/button";
 import {
   TypographyH2,
   TypographyP,
-  TypographyH3,
   TypographyH4,
   TypographyH5,
 } from "../ui/typography";
@@ -37,7 +36,7 @@ export const AboutMe = () => {
           Learn more about my experience, preferences and hobbies.
         </TypographyP>
       </div>
-      <div className="flex flex-col lg:grid lg:grid-cols-2 px-4 lg:px-12 space-y-12">
+      <div className="flex flex-col lg:grid lg:grid-cols-2 px-4 lg:px-12 space-y-12 lg:space-y-0">
         <div className="mr-0 lg:mr-10">
           <TypographyH2>Get to know me!</TypographyH2>
           <TypographyP>
@@ -85,7 +84,7 @@ export const AboutMe = () => {
           </Button>
         </div>
         <div className="ml-0 lg:ml-10">
-          <TypographyH3>Skills</TypographyH3>
+          <TypographyH2>Skills</TypographyH2>
           <div className="flex flex-wrap pt-5">
             <Accordion type="single" collapsible className="w-full">
               {skillsInfo.map((skillInfo) => {
