@@ -1,6 +1,6 @@
 "use client";
 
-import { skills } from "@/data/general";
+import { skillsInfo } from "@/data/general";
 import { Badge } from "../ui/badge";
 import { Button } from "../ui/button";
 import {
@@ -8,9 +8,16 @@ import {
   TypographyP,
   TypographyH3,
   TypographyH4,
+  TypographyH5,
 } from "../ui/typography";
 import { breakpoints } from "@/utils/breakpoints";
 import { TitleSeparator } from "../TitleSeparator";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "../ui/accordion";
 
 export const AboutMe = () => {
   let isMobile = false;
@@ -80,19 +87,33 @@ export const AboutMe = () => {
         <div className="ml-0 lg:ml-10">
           <TypographyH3>Skills</TypographyH3>
           <div className="flex flex-wrap pt-5">
-            {skills.map((skill) => {
-              return (
-                <Badge
-                  key={skill}
-                  size="lg"
-                  variant="secondary"
-                  rounded={"lg"}
-                  className="mr-3 mb-3"
-                >
-                  {skill}
-                </Badge>
-              );
-            })}
+            <Accordion type="single" collapsible className="w-full">
+              {skillsInfo.map((skillInfo) => {
+                const { type, skills } = skillInfo;
+                return (
+                  <AccordionItem value={type} key={type}>
+                    <AccordionTrigger>
+                      <TypographyH5>{type}</TypographyH5>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      {skills.map((skill) => {
+                        return (
+                          <Badge
+                            key={skill}
+                            size="lg"
+                            variant="secondary"
+                            rounded={"lg"}
+                            className="mr-3 mb-3"
+                          >
+                            {skill}
+                          </Badge>
+                        );
+                      })}
+                    </AccordionContent>
+                  </AccordionItem>
+                );
+              })}
+            </Accordion>
           </div>
         </div>
       </div>

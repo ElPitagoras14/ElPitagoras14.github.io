@@ -112,11 +112,11 @@ export const projects: Project[] = [
       live: "https://elpitagoras14.github.io/subnetting-static-web/",
       code: [
         {
-          label: "FrontEnd",
+          label: "Frontend",
           url: "https://github.com/ElPitagoras14/subnetting-web"
         },
         {
-          label: "BackEnd",
+          label: "Backend",
           url: "https://github.com/ElPitagoras14/subnetting-api"
         },
         {

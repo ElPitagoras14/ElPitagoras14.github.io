@@ -1,27 +1,27 @@
-export const skills = [
-  "HTML",
-  "CSS",
-  "Javascript",
-  "React",
-  "FastAPI",
-  "Python",
-  "Algorithm Analysis",
-  "Vue",
-  "Java",
-  "GIT",
-  "AWS",
-  "NodeJS",
-  "Express",
-  "Redis",
-  "MySQL",
-  "MongoDB",
-  "Figma",
-  "Pandas",
-  "Salesforce",
-  "Apex",
-  "LWC",
-  "Seaborn",
-  "Unity",
+import { Skills } from "@/utils/interfaces";
+
+export const skillsInfo: Skills[] = [
+  {
+    type: "Frontend",
+    skills: ["HTML", "CSS", "Javascript", "React", "Vue", "Figma"],
+  },
+  {
+    type: "Backend",
+    skills: ["FastAPI", "NodeJS", "Express", "Python", "Java"],
+  },
+  {
+    type: "Databases",
+    skills: ["MySQL", "MongoDB", "Redis"],
+  },
+  {
+    type: "Data science",
+    skills: ["Pandas", "Seaborn"],
+  },
+  { type: "Salesforce", skills: ["Salesforce", "Apex", "LWC"] },
+  {
+    type: "Others",
+    skills: ["GIT", "Unity", "Algorithm Analysis"],
+  },
 ];
 
 export const socialMedia = {
