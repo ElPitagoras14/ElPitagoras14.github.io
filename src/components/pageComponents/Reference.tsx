@@ -38,7 +38,7 @@ export const Reference = ({ links }: ReferenceProps) => {
             {code.map((repo) => {
               const { label, url } = repo;
               return (
-                <div className="rounded-md border px-4 py-1">
+                <div className="rounded-md border px-4 py-1" key={url}>
                   <Link href={url} target="_blank">
                     <TypographyP>{label}</TypographyP>
                   </Link>
