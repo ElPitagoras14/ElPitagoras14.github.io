@@ -58,7 +58,7 @@ export const NavBar = ({ children }: NavBarProps) => {
                 <AvatarImage src="/profile.png" />
                 <AvatarFallback>JG</AvatarFallback>
               </Avatar>
-              <TypographyH4>Jonathan García</TypographyH4>
+              <TypographyH4>Portfolio</TypographyH4>
             </div>
             <div className="flex space-x-0 sm:space-x-2 md:space-x-4 lg:space-x-6 items-center">
               {children}

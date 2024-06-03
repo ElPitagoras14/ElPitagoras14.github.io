@@ -1,19 +1,12 @@
 import { Hero } from "@/components/pageComponents/Hero";
 import { AboutMe } from "@/components/pageComponents/AboutMe";
 import { Header } from "@/components/pageComponents/Header";
-import { Separator } from "@/components/ui/separator";
 import { Project } from "@/components/pageComponents/Project";
 import { Awards } from "@/components/pageComponents/Awards";
 import { Contact } from "@/components/pageComponents/Contact";
 import { Footer } from "@/components/pageComponents/Footer";
-
-const SectionSeparator = () => {
-  return (
-    <div className="px-4 md:px-12 mt-8">
-      <Separator />
-    </div>
-  );
-};
+import { SectionSeparator } from "@/components/SectionSeparator";
+import { Experience } from "@/components/pageComponents/Experience";
 
 const infoLinks = [
   {
@@ -28,6 +21,12 @@ const infoLinks = [
     id: "about",
     isSamePage: true,
   },
+  // {
+  //   label: "Experience",
+  //   url: "#experience",
+  //   id: "experience",
+  //   isSamePage: true,
+  // },
   {
     label: "Projects",
     url: "#projects",
@@ -57,6 +56,8 @@ export default function Home() {
         <SectionSeparator />
         <AboutMe></AboutMe>
         <SectionSeparator />
+        {/* <Experience></Experience>
+        <SectionSeparator /> */}
         <Project></Project>
         <SectionSeparator />
         <Awards></Awards>

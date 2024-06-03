@@ -85,7 +85,7 @@ export const AboutMe = () => {
                 <Badge
                   key={skill}
                   size="lg"
-                  variant="default"
+                  variant="secondary"
                   rounded={"lg"}
                   className="mr-3 mb-3"
                 >

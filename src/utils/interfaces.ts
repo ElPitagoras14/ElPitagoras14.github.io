@@ -7,6 +7,15 @@ export interface InfoLinks {
   isSamePage: boolean;
 }
 
+export interface ProjectLinks {
+  live?: string;
+  code: {
+    label: string;
+    url: string;
+  }[];
+  documentation?: string;
+}
+
 export interface Project {
   id: string;
   title: string;
@@ -17,12 +26,5 @@ export interface Project {
   year: string;
   madeAt: string;
   technologies: string[];
-  links: {
-    live?: string;
-    code: {
-      label: string;
-      url: string;
-    }[];
-    documentation?: string;
-  }
+  links: ProjectLinks;
 }

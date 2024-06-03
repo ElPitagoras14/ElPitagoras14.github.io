@@ -47,7 +47,7 @@ const getTableCell = (key: string, project: Project) => {
           <Badge
             key={technology}
             size="md"
-            variant="default"
+            variant="secondary"
             rounded={"2xl"}
             className="mr-2 my-1 font-normal"
           >

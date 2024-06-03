@@ -27,6 +27,7 @@ export const Navigation = ({ infoLinks }: NavigationProps) => {
             document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
           }
         }}
+        className="px-1"
       >
         {isSamePage ? (
           <TypographyH5 className={hoverColor}>{label}</TypographyH5>
