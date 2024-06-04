@@ -8,7 +8,6 @@ import {
   CarouselPrevious,
   type CarouselApi,
 } from "@/components/ui/carousel";
-
 import {
   AlertDialog,
   AlertDialogCancel,
@@ -28,9 +27,9 @@ interface GalleryProps {
 
 export const Gallery = ({ images }: GalleryProps) => {
   const [apiMain, setApiMain] = useState<CarouselApi>();
+  const [current, setCurrent] = useState(1);
   const [apiModal, setApiModal] = useState<CarouselApi>();
   const carouselClass = images.length >= 2 ? "basis-1/2" : "";
-  const [current, setCurrent] = useState(1);
 
   useEffect(() => {
     if (!apiModal) {
@@ -46,13 +45,13 @@ export const Gallery = ({ images }: GalleryProps) => {
           <TypographyH2>Gallery</TypographyH2>
           <AlertDialog>
             <div className="flex justify-center">
-              <Carousel className="w-[85%]" setApi={setApiMain}>
+              <Carousel className="max-w-[85%] flex justify-center" setApi={setApiMain}>
                 <AlertDialogTrigger>
                   <CarouselContent>
                     {images.map((image, index) => (
                       <CarouselItem
                         key={index}
-                        className={`${carouselClass} flex  items-center justify-center`}
+                        className={`${carouselClass} flex items-center justify-center`}
                         onClick={() => {
                           setCurrent(index + 1);
                           apiMain?.scrollTo(index);
