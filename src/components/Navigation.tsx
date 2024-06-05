@@ -15,7 +15,7 @@ export const Navigation = ({ infoLinks }: NavigationProps) => {
   if (typeof window !== "undefined") {
     isMobile = window.innerWidth < breakpoints.lg;
   }
-  const hoverColor = !isMobile ? "hover:text-[#6D28D9]" : "";
+  const hoverColor = !isMobile ? "hover:text-primary" : "";
   return infoLinks.map((link) => {
     const { url, id, isSamePage, label } = link;
     return (
