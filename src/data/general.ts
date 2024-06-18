@@ -15,7 +15,7 @@ export const skillsInfo: Skills[] = [
   },
   {
     type: "Data science",
-    skills: ["Pandas", "Seaborn"],
+    skills: ["Pandas", "Seaborn", "Selenium"],
   },
   { type: "Salesforce", skills: ["Salesforce", "Apex", "LWC"] },
   {

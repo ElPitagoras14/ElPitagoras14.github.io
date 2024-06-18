@@ -1,13 +1,5 @@
 import { Project } from "../utils/interfaces";
-import coverUrbapass from "../../public/projects/urbapass/cover.jpg";
-import urbapassImg1 from "../../public/projects/urbapass/urbapass-1.jpg";
-import coverSubnetting from "../../public/projects/subnetting/cover.jpg";
-import coverPpl from "../../public/projects/ppl/cover.jpg";
-import pplImg1 from "../../public/projects/ppl/ppl-1.jpg";
-import pplImg2 from "../../public/projects/ppl/ppl-2.jpg";
-import pplImg3 from "../../public/projects/ppl/ppl-3.jpg";
-import pplImg4 from "../../public/projects/ppl/ppl-4.jpg";
-import pplImg5 from "../../public/projects/ppl/ppl-5.jpg";
+import { urbapass, subnetting, ppl, scraper } from "./images";
 
 type ProjectKey = keyof Project;
 
@@ -63,6 +55,11 @@ export const projectHeaders: {
   },
 ];
 
+const { cover: coverUrbapass, images: urbapassImages } = urbapass;
+const { cover: coverSubnetting, images: subnettingImages } = subnetting;
+const { cover: coverPpl, images: pplImages } = ppl;
+const { cover: coverScraper, images: scraperImages } = scraper;
+
 export const projects: Project[] = [
   {
     id: "pplAdventure",
@@ -72,7 +69,7 @@ export const projects: Project[] = [
       "PPL Adventure is a game made with Unity set in the ESPOL campus as part of the Taws club's new member admission project. In this project I acted as a mentor of the team where I guided the approach of the project.",
     cover: coverPpl,
     page: "/projects/pplAdventure",
-    images: [pplImg1, pplImg2, pplImg3, pplImg4, pplImg5],
+    images: pplImages,
     madeAt: "TAWS Club",
     technologies: [
       "Unity",
@@ -99,7 +96,7 @@ export const projects: Project[] = [
       "Code written in python where the algorithm for IP segmentation with FLSM and VLSM techniques is used.",
     cover: coverSubnetting,
     page: "/projects/subnettingAlgorithm",
-    images: [],
+    images: subnettingImages,
     madeAt: "Freelance",
     technologies: [
       "FastAPI",
@@ -107,22 +104,23 @@ export const projects: Project[] = [
       "Next.js",
       "Typescript",
       "Algorithm Design",
+      "TailwindCSS"
     ],
     links: {
       live: "https://elpitagoras14.github.io/subnetting-static-web/",
       code: [
         {
           label: "Frontend",
-          url: "https://github.com/ElPitagoras14/subnetting-web"
+          url: "https://github.com/ElPitagoras14/subnetting-web",
         },
         {
           label: "Backend",
-          url: "https://github.com/ElPitagoras14/subnetting-api"
+          url: "https://github.com/ElPitagoras14/subnetting-api",
         },
         {
           label: "Static Website",
-          url: "https://github.com/ElPitagoras14/subnetting-static-web"
-        }
+          url: "https://github.com/ElPitagoras14/subnetting-static-web",
+        },
       ],
     },
   },
@@ -134,7 +132,7 @@ export const projects: Project[] = [
       "UrbaPass Backend is a REST API that will allow communication between the company client and server, facilitating interaction and obtaining data through requests with the HTTP protocol.",
     cover: coverUrbapass,
     page: "/projects/urbapassBackend",
-    images: [urbapassImg1],
+    images: urbapassImages,
     madeAt: "ESPOL",
     technologies: [
       "Node.js",
@@ -150,10 +148,43 @@ export const projects: Project[] = [
       code: [
         {
           label: "Main code",
-          url: "https://github.com/ElPitagoras14/backend-urbapass"
-        }
-      ]
-    }
+          url: "https://github.com/ElPitagoras14/backend-urbapass",
+        },
+      ],
+    },
+  },
+  {
+    id: "scraperAnime",
+    year: "2024",
+    title: "Anime Scraper",
+    description:
+      "Scraper is a web scraping project that allows you to extract anime data and download from servers in the internet.",
+    cover: coverScraper,
+    page: "/projects/scraperAnime",
+    images: scraperImages,
+    madeAt: "Freelance",
+    technologies: [
+      "FastAPI",
+      "Python",
+      "BeautifulSoup",
+      "Selenium",
+      "Next.js",
+      "Typescript",
+      "Redux",
+      "TailwindCSS",
+    ],
+    links: {
+      code: [
+        {
+          label: "Frontend",
+          url: "https://github.com/ElPitagoras14/scrap-anime-web",
+        },
+        {
+          label: "Backend",
+          url: "https://github.com/ElPitagoras14/scrap-anime-api",
+        },
+      ],
+    },
   },
 ];
 

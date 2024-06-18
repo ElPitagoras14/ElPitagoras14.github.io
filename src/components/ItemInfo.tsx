@@ -25,6 +25,7 @@ export const ItemInfo = ({ item }: ItemInfoProps) => {
             alt={title}
             className="rounded-lg"
             width={1000}
+            height={562}
           ></Image>
         </AspectRatio>
       </div>
