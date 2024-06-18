@@ -1,6 +1,6 @@
 import { Header } from "@/components/pageComponents/Header";
 import { TypographyH2, TypographyH6 } from "@/components/ui/typography";
-import { projects, projectHeaders } from "@/data/projects";
+import { sortedProjects as projects, projectHeaders } from "@/data/projects";
 import { Project } from "@/utils/interfaces";
 import { Badge } from "@/components/ui/badge";
 import {

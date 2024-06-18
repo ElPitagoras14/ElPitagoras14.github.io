@@ -4,7 +4,7 @@ import { Header } from "@/components/pageComponents/Header";
 import { ProjectInfo } from "@/components/pageComponents/ProjectInfo";
 import { Reference } from "@/components/pageComponents/Reference";
 import { TechStack } from "@/components/pageComponents/TechStack";
-import { projects, indexedProjects } from "@/data/projects";
+import { sortedProjects as projects, indexedProjects } from "@/data/projects";
 import { Metadata } from "next";
 
 const infoLinks = [

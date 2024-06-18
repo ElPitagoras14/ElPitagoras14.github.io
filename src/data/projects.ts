@@ -104,7 +104,7 @@ export const projects: Project[] = [
       "Next.js",
       "Typescript",
       "Algorithm Design",
-      "TailwindCSS"
+      "TailwindCSS",
     ],
     links: {
       live: "https://elpitagoras14.github.io/subnetting-static-web/",
@@ -188,7 +188,11 @@ export const projects: Project[] = [
   },
 ];
 
-export const indexedProjects = projects.reduce((acc, project) => {
+export const sortedProjects = projects.sort((a, b) => {
+  return parseInt(b.year) - parseInt(a.year);
+});
+
+export const indexedProjects = sortedProjects.reduce((acc, project) => {
   acc[project.id] = project;
   return acc;
 }, {} as Record<string, Project>);
