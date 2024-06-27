@@ -172,6 +172,8 @@ export const projects: Project[] = [
       "Typescript",
       "Redux",
       "TailwindCSS",
+      "Docker",
+      "Redis",
     ],
     links: {
       code: [
