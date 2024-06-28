@@ -17,10 +17,13 @@ export const skillsInfo: Skills[] = [
     type: "Data science",
     skills: ["Pandas", "Seaborn", "Selenium"],
   },
-  { type: "Salesforce", skills: ["Salesforce", "Apex", "LWC"] },
+  {
+    type: "DevOps",
+    skills: ["Docker"],
+  },
   {
     type: "Others",
-    skills: ["GIT", "Unity", "Algorithm Analysis"],
+    skills: ["GIT", "Unity", "Algorithm Analysis", "Salesforce", "Apex", "LWC"],
   },
 ];
 
