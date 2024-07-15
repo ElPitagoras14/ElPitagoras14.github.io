@@ -10,4 +10,4 @@ Every time a commit is made to the main branch, GitHub Pages automatically updat
 
 ## Support
 
-For support, email jonfgar@espol.edu.ec or [buy me a coffee](https://www.buymeacoffee.com/jhonyg).
+For support, email jonfrgar@espol.edu.ec or [buy me a coffee](https://www.buymeacoffee.com/jhonyg).
