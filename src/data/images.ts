@@ -21,6 +21,8 @@ import scraperImg2 from "../../public/projects/scraper/scraper-2.jpg";
 import scraperImg3 from "../../public/projects/scraper/scraper-3.jpg";
 import scraperImg4 from "../../public/projects/scraper/scraper-4.jpg";
 import scraperImg5 from "../../public/projects/scraper/scraper-5.jpg";
+import scraperImg6 from "../../public/projects/scraper/scraper-6.jpg";
+import scraperImg7 from "../../public/projects/scraper/scraper-7.jpg";
 
 export const urbapass = {
   cover: coverUrbapass,
@@ -45,5 +47,13 @@ export const ppl = {
 
 export const scraper = {
   cover: coverScraper,
-  images: [scraperImg1, scraperImg2, scraperImg3, scraperImg4, scraperImg5],
+  images: [
+    scraperImg1,
+    scraperImg2,
+    scraperImg3,
+    scraperImg4,
+    scraperImg5,
+    scraperImg6,
+    scraperImg7,
+  ],
 };
