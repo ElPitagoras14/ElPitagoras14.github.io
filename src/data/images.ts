@@ -23,6 +23,9 @@ import scraperImg4 from "../../public/projects/scraper/scraper-4.jpg";
 import scraperImg5 from "../../public/projects/scraper/scraper-5.jpg";
 import scraperImg6 from "../../public/projects/scraper/scraper-6.jpg";
 import scraperImg7 from "../../public/projects/scraper/scraper-7.jpg";
+import scraperImg8 from "../../public/projects/scraper/scraper-8.jpg";
+import scraperImg9 from "../../public/projects/scraper/scraper-9.jpg";
+import scraperImg10 from "../../public/projects/scraper/scraper-10.jpg";
 
 export const urbapass = {
   cover: coverUrbapass,
@@ -55,5 +58,8 @@ export const scraper = {
     scraperImg5,
     scraperImg6,
     scraperImg7,
+    scraperImg8,
+    scraperImg9,
+    scraperImg10,
   ],
 };

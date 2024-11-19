@@ -158,7 +158,7 @@ export const projects: Project[] = [
     year: "2024",
     title: "Anime Scraper",
     description:
-      "Scraper is a web scraping project that allows you to extract anime data and download from servers in the internet.",
+      "Anime Scraper is a web scraping project that allows you to extract anime data and download from servers in the internet.",
     cover: coverScraper,
     page: "/projects/scraperAnime",
     images: scraperImages,
@@ -167,13 +167,15 @@ export const projects: Project[] = [
       "FastAPI",
       "Python",
       "BeautifulSoup",
-      "Selenium",
+      "Playwright",
       "Next.js",
       "Typescript",
       "Redux",
       "TailwindCSS",
       "Docker",
-      "Redis",
+      "Postgres",
+      "JWT",
+      "Authentication",
     ],
     links: {
       code: [

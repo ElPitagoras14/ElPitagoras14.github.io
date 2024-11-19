@@ -45,7 +45,10 @@ export const Gallery = ({ images }: GalleryProps) => {
           <TypographyH2>Gallery</TypographyH2>
           <AlertDialog>
             <div className="flex justify-center">
-              <Carousel className="max-w-[85%] flex justify-center" setApi={setApiMain}>
+              <Carousel
+                className="max-w-[85%] flex justify-center"
+                setApi={setApiMain}
+              >
                 <AlertDialogTrigger>
                   <CarouselContent>
                     {images.map((image, index) => (
@@ -57,7 +60,7 @@ export const Gallery = ({ images }: GalleryProps) => {
                           apiMain?.scrollTo(index);
                         }}
                       >
-                        <Image src={image} alt={""} width={600}></Image>
+                        <Image src={image} alt={""} height={300}></Image>
                       </CarouselItem>
                     ))}
                   </CarouselContent>
@@ -83,7 +86,7 @@ export const Gallery = ({ images }: GalleryProps) => {
                         key={index}
                         className={`flex items-center justify-center`}
                       >
-                        <Image src={image} alt={""} width={1000}></Image>
+                        <Image src={image} alt={""} height={500}></Image>
                       </CarouselItem>
                     ))}
                   </CarouselContent>

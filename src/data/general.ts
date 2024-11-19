@@ -11,11 +11,11 @@ export const skillsInfo: Skills[] = [
   },
   {
     type: "Databases",
-    skills: ["MySQL", "MongoDB", "Redis"],
+    skills: ["MySQL", "MongoDB", "Postgres", "Redis"],
   },
   {
     type: "Data science",
-    skills: ["Pandas", "Seaborn", "Selenium"],
+    skills: ["Pandas", "Seaborn", "Selenium", "Playwright", "BeautifulSoup"],
   },
   {
     type: "DevOps",
