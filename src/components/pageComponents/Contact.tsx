@@ -6,7 +6,7 @@ import { Form } from "../ui/form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
-import { Field } from "../Field";
+import { Field } from "../field";
 import { Button } from "../ui/button";
 import axios from "axios";
 import { TitleSeparator } from "../TitleSeparator";

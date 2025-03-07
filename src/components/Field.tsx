@@ -14,7 +14,7 @@ interface FormFieldProps {
   form: any;
 }
 
-export const Field = ({ formInfo, form }: FormFieldProps) => {
+export default function Field({ formInfo, form }: FormFieldProps) {
   const { name, label, type, placeholder, description } = formInfo;
   return (
     <FormField
@@ -40,4 +40,4 @@ export const Field = ({ formInfo, form }: FormFieldProps) => {
       )}
     />
   );
-};
+}

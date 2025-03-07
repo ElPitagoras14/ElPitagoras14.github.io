@@ -1,26 +1,10 @@
-import { SectionSeparator } from "@/components/SectionSeparator";
+import { SectionSeparator } from "@/components/section-separator";
 import { Gallery } from "@/components/pageComponents/Gallery";
-import { Header } from "@/components/pageComponents/Header";
 import { ProjectInfo } from "@/components/pageComponents/ProjectInfo";
 import { Reference } from "@/components/pageComponents/Reference";
 import { TechStack } from "@/components/pageComponents/TechStack";
 import { sortedProjects as projects, indexedProjects } from "@/data/projects";
 import { Metadata } from "next";
-
-const infoLinks = [
-  {
-    label: "Portfolio",
-    url: "/",
-    id: "portfolio",
-    isSamePage: false,
-  },
-  {
-    label: "All Projects",
-    url: "/projects",
-    id: "home",
-    isSamePage: false,
-  },
-];
 
 interface SingleProjectProps {
   params: { id: string };
@@ -47,11 +31,10 @@ export function generateMetadata({ params }: Props): Metadata {
 const SingleProject = ({ params }: SingleProjectProps) => {
   const { id } = params;
   const currProject = indexedProjects[id];
-  const { title, description, images, technologies, links } = currProject;
+  const { title, description, technologies, links } = currProject;
 
   return (
     <>
-      <Header infoLinks={infoLinks}></Header>
       <main>
         <ProjectInfo title={title} description={description}></ProjectInfo>
         <SectionSeparator></SectionSeparator>
@@ -59,7 +42,7 @@ const SingleProject = ({ params }: SingleProjectProps) => {
           <TechStack technologies={technologies}></TechStack>
           <Reference links={links}></Reference>
         </div>
-        <Gallery images={images}></Gallery>
+        {/* <Gallery images={images}></Gallery> */}
       </main>
     </>
   );
