@@ -34,7 +34,7 @@ export const ItemInfo = ({ item }: ItemInfoProps) => {
         <TypographyP>{description}</TypographyP>
         {page && (
           <Link href={page}>
-            <Button className="mt-6" size={"xl"}>
+            <Button className="mt-6">
               <TypographyH5>More Info</TypographyH5>
             </Button>
           </Link>

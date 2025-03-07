@@ -1,73 +1,62 @@
-import { IconMenu2 } from "@tabler/icons-react";
-import { ModeToggle } from "./ModeToggle";
-import { Button } from "./ui/button";
-import { Separator } from "./ui/separator";
-import { TypographyH4 } from "./ui/typography";
-import { breakpoints } from "@/utils/breakpoints";
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "./ui/accordion";
+"use client";
 
-interface NavBarProps {
-  children?: React.ReactNode;
-}
+import { motion } from "framer-motion";
+import Link from "next/link";
+import { useState } from "react";
+import { useI18n } from "@/context/i18n-provider";
+import ModeToggle from "./mode-toggle";
 
-export const NavBar = ({ children }: NavBarProps) => {
-  let isMobile = false;
-  if (typeof window !== "undefined") {
-    isMobile = window.innerWidth < breakpoints.lg;
-  }
+const navItems = [
+  { name: "Home", href: "/" },
+  { name: "Projects", href: "/projects" },
+  { name: "Awards", href: "/awards" },
+  { name: "Blog", href: "/blog" },
+  { name: "Contact", href: "/contact" },
+];
+
+export default function NavBar() {
+  const [activeTab, setActiveTab] = useState(0);
+  const { locale, setLocale } = useI18n();
+
   return (
-    <nav>
-      {isMobile ? (
-        <Accordion type="single" collapsible className="">
-          <AccordionItem
-            value="item-1"
-            className="py-0 sm:py-1 px-2 sm:px-5 md:px-8 lg:px-12"
-          >
-            <div className="flex justify-between items-center pl-1">
-              <Avatar size="lg">
-                <AvatarImage src="/profile.png" />
-                <AvatarFallback>JG</AvatarFallback>
-              </Avatar>
-              <div className="flex space-x-1 items-center">
-                <ModeToggle isMobile></ModeToggle>
-                <AccordionTrigger noIcon>
-                  <Button variant={null} className="pr-2">
-                    <IconMenu2 size={24} />
-                  </Button>
-                </AccordionTrigger>
-              </div>
-            </div>
-            <AccordionContent>
-              <div className="flex flex-col space-x-0 sm:space-x-2 md:space-x-4 items-end">
-                {children}
-              </div>
-            </AccordionContent>
-          </AccordionItem>
-        </Accordion>
-      ) : (
-        <>
-          <div className="flex justify-between py-4 px-2 sm:px-5 md:px-8 lg:px-12">
-            <div className="flex space-x-0 sm:space-x-2 md:space-x-4 lg:space-x-6 items-center">
-              <Avatar size="lg">
-                <AvatarImage src="/profile.png" />
-                <AvatarFallback>JG</AvatarFallback>
-              </Avatar>
-              <TypographyH4>Portfolio</TypographyH4>
-            </div>
-            <div className="flex space-x-0 sm:space-x-2 md:space-x-4 lg:space-x-6 items-center">
-              {children}
-              <ModeToggle></ModeToggle>
-            </div>
+    <nav className="fixed top-0 left-0 right-0 z-50 flex flex-row justify-center transition-all duration-200 bg-background/80 backdrop-blur-sm">
+      <div className="my-2 flex flex-col rounded-full border border-secondary">
+        <div className="rounded-full flex flex-row flex-wrap items-center p-2 px-4 transition-colors duration-300">
+          {navItems.map((item, index) => (
+            <Link
+              key={item.name}
+              href={item.href}
+              onClick={() => setActiveTab(index)}
+              className="relative px-2 lg:px-4 py-2 transition-colors text-xs lg:text-base"
+            >
+              {item.name}
+              {activeTab === index && (
+                <motion.div
+                  layoutId="active-pill"
+                  className="absolute inset-0 bg-muted rounded-full -z-10"
+                  transition={{ type: "spring", duration: 0.5 }}
+                />
+              )}
+            </Link>
+          ))}
+          <div className="relative px-2 transition-colors text-xs lg:text-base">
+            <ModeToggle />
           </div>
-          <Separator />
-        </>
-      )}
+          <div
+            className="flex flex-row justify-center items-center px-2 hover:text-primary hover:cursor-pointer"
+            onClick={() => {
+              if (locale === "en") {
+                setLocale("es");
+              } else {
+                setLocale("en");
+              }
+            }}
+          >
+            {locale === "en" && <span>EN</span>}
+            {locale === "es" && <span>ES</span>}
+          </div>
+        </div>
+      </div>
     </nav>
   );
-};
+}

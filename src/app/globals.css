@@ -5,7 +5,7 @@
 
 @layer base {
   :root {
-    --background: 0 0% 98%;
+    --background: 0 0% 90%;
     --foreground: 224 71.4% 4.1%;
     --card: 0 0% 98%;
     --card-foreground: 224 71.4% 4.1%;
@@ -74,4 +74,15 @@ body::-webkit-scrollbar-thumb {
 
 nav {
   background-color: hsl(var(--background));
+}
+
+
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
 }
