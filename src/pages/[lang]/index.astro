@@ -1,0 +1,23 @@
+---
+import { getTranslations } from "../../i18n";
+
+export async function getStaticPaths() {
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}
+
+const { lang = "en" } = Astro.params;
+const t = getTranslations(lang);
+---
+
+<html lang={lang}>
+  <head>
+    <title>Home</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} >
+  </head>
+  <body>
+    <h1>{t.welcome}</h1>
+    <p>{t.description}</p>
+  </body>
+</html>
