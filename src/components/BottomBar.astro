@@ -1,0 +1,67 @@
+---
+import { getTranslations } from "@/i18n";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  lang: string;
+  highlight: string;
+}
+
+const { lang, highlight } = Astro.props as Props;
+const t = getTranslations(lang);
+
+const { navbar } = t;
+
+const isProduction = import.meta.env.PUBLIC_DEPLOY_ENV === "production";
+const suffixUrl = isProduction ? "/" : "";
+---
+
+<div
+  class="flex md:hidden flex-row justify-between items-center pb-2 pt-3 px-6 fixed bottom-0 left-0 right-0 z-50 border-t border-accent font-semibold text-lg bg-background transition-transform duration-300 md:translate-y-0 text-foreground/50"
+>
+  <a
+    class={highlight === `/${lang}/`
+      ? "text-foreground flex flex-col items-center space-y-1"
+      : "hover:text-foreground flex flex-col items-center space-y-1"}
+    href=`/${lang}/`
+  >
+    <Icon name={"bottombar/home"} class="w-5 h-5" />
+    <span class="text-sm">{navbar.home}</span>
+  </a>
+  <a
+    class={highlight === `/${lang}/about${suffixUrl}`
+      ? "text-foreground flex flex-col items-center space-y-1"
+      : "hover:text-foreground flex flex-col items-center space-y-1"}
+    href=`/${lang}/about`
+  >
+    <Icon name={"bottombar/about"} class="w-5 h-5" />
+    <span class="text-sm">{navbar.about}</span>
+  </a>
+  <a
+    class={highlight === `/${lang}/projects${suffixUrl}`
+      ? "text-foreground flex flex-col items-center space-y-1"
+      : "hover:text-foreground flex flex-col items-center space-y-1"}
+    href=`/${lang}/projects`
+  >
+    <Icon name={"bottombar/projects"} class="w-5 h-5" />
+    <span class="text-sm">{navbar.projects}</span>
+  </a>
+  <a
+    class={highlight === `/${lang}/blog${suffixUrl}`
+      ? "text-foreground flex flex-col items-center space-y-1"
+      : "hover:text-foreground flex flex-col items-center space-y-1"}
+    href=`/${lang}/blog`
+  >
+    <Icon name={"bottombar/blog"} class="w-5 h-5" />
+    <span class="text-sm">{navbar.blog}</span>
+  </a>
+  <a
+    class={highlight === `/${lang}/contact${suffixUrl}`
+      ? "text-foreground flex flex-col items-center space-y-1"
+      : "hover:text-foreground flex flex-col items-center space-y-1"}
+    href=`/${lang}/contact`
+  >
+    <Icon name={"bottombar/contact"} class="w-5 h-5" />
+    <span class="text-sm">{navbar.contact}</span>
+  </a>
+</div>

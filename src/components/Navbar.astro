@@ -14,23 +14,59 @@ const t = getTranslations(lang);
 const { navbar } = t;
 
 const lastParts = highlight.split("/").splice(2).join("/");
+const isProduction = import.meta.env.PUBLIC_DEPLOY_ENV === "production";
+const suffixUrl = isProduction ? "/" : "";
 ---
 
+<script is:inline>
+  window.addEventListener("DOMContentLoaded", () => {
+    const navbar = document.getElementById("navbar");
+    let lastScrollY = window.scrollY;
+
+    function handleScroll() {
+      const currentScrollY = window.scrollY;
+      const isMobile = window.innerWidth < 768;
+
+      if (!isMobile) {
+        navbar.style.transform = "translateY(0)";
+        return;
+      }
+
+      if (currentScrollY > lastScrollY && currentScrollY > 50) {
+        navbar.style.transform = "translateY(-100%)";
+      } else {
+        navbar.style.transform = "translateY(0)";
+      }
+
+      lastScrollY = currentScrollY;
+    }
+
+    window.addEventListener("scroll", handleScroll);
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth >= 768) {
+        navbar.style.transform = "translateY(0)";
+      }
+    });
+  });
+</script>
+
 <nav
-  class="flex flex-row justify-between items-center py-4 px-6 sticky top-0 z-50 border-b border-accent font-semibold text-lg"
+  id="navbar"
+  class="flex flex-row justify-between items-center py-2 md:py-4 px-6 sticky top-0 z-50 border-b border-accent font-semibold text-lg bg-background transition-transform duration-300 md:translate-y-0"
 >
   <div class="flex space-x-4 items-center">
     <Image
       src="/assets/profile.png"
       alt="Logo"
-      class="w-10 h-10 rounded-full"
+      class="w-10 h-10 rounded-full hidden md:block"
       width={48}
       height={48}
       loading="eager"
     />
     <span class="text-xl">JG</span>
   </div>
-  <div class="flex flex-row space-x-6 text-foreground/50">
+  <div class="hidden md:flex flex-row space-x-6 text-foreground/50">
     <a
       class={highlight === `/${lang}/`
         ? "text-foreground"
@@ -38,31 +74,31 @@ const lastParts = highlight.split("/").splice(2).join("/");
       href=`/${lang}/`>{navbar.home}</a
     >
     <a
-      class={highlight === `/${lang}/about/`
+      class={highlight === `/${lang}/about${suffixUrl}`
         ? "text-foreground"
         : "hover:text-foreground"}
       href=`/${lang}/about`>{navbar.about}</a
     >
     <a
-      class={highlight === `/${lang}/projects/`
+      class={highlight === `/${lang}/projects${suffixUrl}`
         ? "text-foreground"
         : "hover:text-foreground"}
       href=`/${lang}/projects`>{navbar.projects}</a
     >
     <a
-      class={highlight === `/${lang}/blog/`
+      class={highlight === `/${lang}/blog${suffixUrl}`
         ? "text-foreground"
         : "hover:text-foreground"}
       href=`/${lang}/blog`>{navbar.blog}</a
     >
     <a
-      class={highlight === `/${lang}/contact/`
+      class={highlight === `/${lang}/contact${suffixUrl}`
         ? "text-foreground"
         : "hover:text-foreground"}
       href=`/${lang}/contact`>{navbar.contact}</a
     >
   </div>
-  <div class="flex flex-row items-center space-x-2">
+  <div class="flex flex-row items-center md:space-x-2">
     {
       lang === "en" ? (
         <a href={`/es/${lastParts}`}>EN</a>

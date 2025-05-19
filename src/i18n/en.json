@@ -31,7 +31,7 @@
     ],
     "about": {
       "title": "About Me",
-      "description": "I'm Jonathan García, a developer based in Ecuador with a strong focus on algorithms and software optimization. My journey began at 14 through a curiosity about how video games are made, which led me to programming and problem solving. I enjoy competitive programming, working on challenging projects, and building efficient solutions. I've collaborated to create impactful digital products. Outside of coding, I enjoy video games, music, and anime—Steins;Gate is my favorite. I'm always open to new opportunities and collaborations."
+      "description": "I'm Jonathan García, a developer based in Ecuador with a strong focus on algorithms and software optimization. My journey began at 14 through a curiosity about how video games are made, which led me to programming and problem solving. I enjoy competitive programming, working on challenging projects, and building efficient solutions. I've collaborated to create impactful digital products. Outside of coding, I enjoy video games, music, and anime Steins;Gate is my favorite. I'm always open to new opportunities and collaborations."
     },
     "expertise": {
       "title": "My Expertise",
@@ -211,6 +211,11 @@
           "title": "Devsu Hackathon Finalist",
           "issuer": "Devsu Hackathon",
           "date": "2022"
+        },
+        {
+          "title": "Salesforce Certified Platform Developer I",
+          "issuer": "Salesforce",
+          "date": "2023"
         }
       ]
     },

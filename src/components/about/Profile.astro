@@ -15,21 +15,21 @@ const {
 } = t;
 ---
 
-<section class="w-full px-12 mt-20 grid grid-cols-5 gap-x-10">
+<section class="w-full mt-12 md:mt-20 px-6 md:px-12 flex flex-col md:grid grid-cols-5 md:gap-x-10">
   <div class="col-span-2 flex justify-center items-center">
     <Image
       src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
       alt="Profile"
-      class="h-86 w-auto object-contain rounded-4xl"
+      class="h-64 md:h-86 w-auto object-contain rounded-4xl"
       loading="eager"
       width={256}
       height={256}
     />
   </div>
-  <div class="flex flex-col space-y-4 col-span-3 justify-center">
-    <span class="text-5xl font-bold">{profile.title}</span>
-    <span class="text-foreground/60 w-[75%]">{profile.description}</span>
-    <div class="mt-4">
+  <div class="flex flex-col space-y-3 md:space-y-4 col-span-3 justify-center mt-6 md:mt-0">
+    <span class="text-3xl md:text-5xl font-bold">{profile.title}</span>
+    <span class="text-foreground/60 md:w-[75%]">{profile.description}</span>
+    <div class="mt-1 md:mt-4">
       <InteractiveHoverButton
         ><a href="/assets/full-stack-developer.pdf" target="_blank" aria-label="My Resume">
           {profile.resume}</a

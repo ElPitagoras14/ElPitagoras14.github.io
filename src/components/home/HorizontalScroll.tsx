@@ -8,11 +8,13 @@ interface HorizontalScrollProps {
 
 export default function HorizontalScroll({ lang }: HorizontalScrollProps) {
   const t = getTranslations(lang);
-  const { home: { scrolling } } = t;
+  const {
+    home: { scrolling },
+  } = t;
 
   return (
     <Marquee
-      className="text-4xl font-semibold h-24 mt-12 text-foreground/30 border-y-2 fade-mask"
+      className="text-2xl md:text-4xl font-semibold h-16 md:h-24 mt-4 md:mt-12 text-foreground/30 border-y-2 fade-mask"
       autoFill={true}
       speed={40}
       gradient={true}

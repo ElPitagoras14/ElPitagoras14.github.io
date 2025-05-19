@@ -13,19 +13,19 @@ const {
 } = t;
 ---
 
-<div class="flex flex-col space-y-2 p-6 rounded-4xl bg-secondary/40">
-  <div class="">
+<div class="flex flex-col space-y-2 p-4 md:p-6 rounded-4xl bg-secondary/40">
+  <div>
     <Image
       src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
       alt="Jonathan Garcia"
-      class="rounded-full w-24 h-24 object-cover p-2 border"
+      class="rounded-full w-16 md:w-24 h-16 md:h-24 object-cover p-1 md:p-2 border"
       width={96}
       height={96}
       loading="eager"
     />
   </div>
-  <span>{connect.contactCard}</span>
-  <div class="flex space-x-4 mt-2">
+  <span class="text-sm md:text-base">{connect.contactCard}</span>
+  <div class="flex space-x-2 md:space-x-4 mt-2">
     <a
       class="hover:text-primary"
       href="https://github.com/ElPitagoras14"
