@@ -1,0 +1,99 @@
+---
+import { getTranslations } from "@/i18n";
+
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
+import { iconsMap, imageChange } from "@/lib/icon";
+import { projectsMap, type Project } from "@/lib/project";
+import { Icon } from "astro-icon/components";
+import { Button } from "../ui/button";
+
+const { projectIds, lang } = Astro.props;
+
+type LangKey = "en" | "es";
+
+const projectsInfo = projectIds.map(
+  (projectId: string) => projectsMap[projectId]
+);
+
+const langKey = lang as LangKey;
+
+const t = getTranslations(lang);
+const { projects } = t;
+---
+
+<Table className="w-full">
+  <TableHeader>
+    <TableRow>
+      {
+        projects.headers.map((header) => (
+          <TableHead key={header}>{header}</TableHead>
+        ))
+      }
+    </TableRow>
+  </TableHeader>
+  <TableBody>
+    {
+      projectsInfo.map((project: Project) => {
+        const info = project[langKey];
+
+        return (
+          <TableRow key={project.id}>
+            <TableCell>{project.year}</TableCell>
+            <TableCell className="text-md font-bold">{project.title}</TableCell>
+            <TableCell>{project.madeAt}</TableCell>
+            <TableCell>{info.status}</TableCell>
+            <TableCell className="flex flex-wrap gap-2">
+              {project.technologies.map((skill) => {
+                const { icon, name, isDefault } = iconsMap[skill];
+                const iconName = isDefault ? "default" : icon;
+
+                return (
+                  <Badge
+                    variant="secondary"
+                    className="px-3 py-2 flex items-center"
+                  >
+                    <span class="mr-1">
+                      {imageChange.includes(icon) ? (
+                        <img
+                          src={`/techs/${icon}.svg`}
+                          alt={name}
+                          class="w-5 h-5"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <Icon name={`techs/${iconName}`} class="w-5 h-5" />
+                      )}
+                    </span>
+                    <span class="text-sm">{name}</span>
+                  </Badge>
+                );
+              })}
+            </TableCell>
+            <TableCell>
+              <a
+                href={`/${lang}/project/${project.id}`}
+                aria-label={`View ${project.title} project`}
+              >
+                <Button
+                  size="icon"
+                  variant="outline"
+                  className="hover:cursor-pointer"
+                >
+                  <Icon name="chevron-right" class="w-6 h-6" />
+                </Button>
+              </a>
+            </TableCell>
+          </TableRow>
+        );
+      })
+    }
+  </TableBody>
+</Table>

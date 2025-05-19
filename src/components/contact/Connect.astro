@@ -1,0 +1,31 @@
+---
+import { getTranslations } from "@/i18n";
+
+import ContactForm from "./ContactForm";
+import ContactCard from "./ContactCard.astro";
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props as Props;
+const t = getTranslations(lang);
+const {
+  contact: { connect },
+} = t;
+---
+
+<section class="mt-20 px-12 w-full">
+  <div class="flex flex-col space-y-4 w-[40%]">
+    <span class="text-primary text-lg">✦ {connect.title}</span>
+    <span class="text-4xl font-semibold">{connect.subtitle}</span>
+  </div>
+  <div class="grid grid-cols-2 gap-x-8 mt-10">
+    <div>
+      <ContactForm lang={lang} client:load/>
+    </div>
+    <div>
+      <ContactCard lang={lang}/>
+    </div>
+  </div>
+</section>

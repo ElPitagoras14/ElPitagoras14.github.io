@@ -1,17 +1,11 @@
-import es from "./es.json";
-import en from "./en.json";
+import es from './es.json';
+import en from './en.json';
 
-type TranslationKeys = keyof typeof es;
-
-type Translations = {
-  [key: string]: Record<TranslationKeys, string>;
-};
-
-const translations: Translations = {
+export const translations = {
   es,
-  en,
+  en
 };
 
-export function getTranslations(lang: string): Record<TranslationKeys, string> {
-  return translations[lang] ?? translations["es"];
+export function getTranslations(lang: string) {
+  return translations[lang as keyof typeof translations] ?? translations.es;
 }

@@ -1,0 +1,40 @@
+---
+import { getTranslations } from "@/i18n";
+import { Image } from "astro:assets";
+
+import { InteractiveHoverButton } from "../magicui/interactive-hover-button";
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props as Props;
+const t = getTranslations(lang);
+const {
+  about: { profile },
+} = t;
+---
+
+<section class="w-full px-12 mt-20 grid grid-cols-5 gap-x-10">
+  <div class="col-span-2 flex justify-center items-center">
+    <Image
+      src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
+      alt="Profile"
+      class="h-86 w-auto object-contain rounded-4xl"
+      loading="eager"
+      width={256}
+      height={256}
+    />
+  </div>
+  <div class="flex flex-col space-y-4 col-span-3 justify-center">
+    <span class="text-5xl font-bold">{profile.title}</span>
+    <span class="text-foreground/60 w-[75%]">{profile.description}</span>
+    <div class="mt-4">
+      <InteractiveHoverButton
+        ><a href="/assets/full-stack-developer.pdf" target="_blank" aria-label="My Resume">
+          {profile.resume}</a
+        ></InteractiveHoverButton
+      >
+    </div>
+  </div>
+</section>

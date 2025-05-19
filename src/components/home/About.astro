@@ -1,0 +1,20 @@
+---
+import { getTranslations } from "@/i18n";
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props as Props;
+const t = getTranslations(lang);
+const {
+  home: { about },
+} = t;
+---
+
+<section
+  class="flex flex-col items-center justify-center space-y-4 mt-12 px-12 w-full"
+>
+  <span class="text-primary text-lg">✦ {about.title}</span>
+  <span class="text-xl text-center">{about.description}</span>
+</section>

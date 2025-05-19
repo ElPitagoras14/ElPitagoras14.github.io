@@ -1,4 +1,323 @@
 {
-  "welcome": "Welcome to the application!",
-  "description": "This is a sample application to demonstrate i18n."
+  "title": "Jonathan García Portfolio",
+  "navbar": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "blog": "Blog",
+    "contact": "Contact"
+  },
+  "footer": "© 2025 Jonathan García. All rights reserved.",
+  "callToAction": {
+    "title": "Let's work together",
+    "description": "If you are looking for a developer to help you with your project, feel free to contact me.",
+    "button": "Contact Me"
+  },
+  "home": {
+    "hero": {
+      "greetings": "Hi, I'm Jonathan García",
+      "role": "Full Stack Developer",
+      "subroles": "Computer Science Engineer | Algorithm Enjoyer",
+      "briefcase": "I am a full stack developer with a passion for creating efficient and scalable applications. I have experience in various technologies and enjoy solving complex problems.",
+      "resume": "My Resume"
+    },
+    "scrolling": [
+      "Development",
+      "Design",
+      "Websites",
+      "Algorithms",
+      "Competitive Programming",
+      "Devops"
+    ],
+    "about": {
+      "title": "About Me",
+      "description": "I'm Jonathan García, a developer based in Ecuador with a strong focus on algorithms and software optimization. My journey began at 14 through a curiosity about how video games are made, which led me to programming and problem solving. I enjoy competitive programming, working on challenging projects, and building efficient solutions. I've collaborated to create impactful digital products. Outside of coding, I enjoy video games, music, and anime—Steins;Gate is my favorite. I'm always open to new opportunities and collaborations."
+    },
+    "expertise": {
+      "title": "My Expertise",
+      "subtitle": "What I do",
+      "description": "Here are some of things I can do",
+      "areas": [
+        {
+          "title": "Web Development",
+          "content": "Design and development of modern, scalable, and user-friendly web applications."
+        },
+        {
+          "title": "Data Automation & Scraping",
+          "content": "Automation of repetitive tasks and extraction of structured data from websites and online platforms."
+        },
+        {
+          "title": "DevOps & Deployment",
+          "content": "Deployment and maintenance of applications with focus on scalability, reliability, and environment management."
+        },
+        {
+          "title": "UI/UX & Prototyping",
+          "content": "Design of clean, functional interfaces and interactive prototypes with a user-centered approach."
+        }
+      ]
+    },
+    "work": {
+      "title": "My work",
+      "subtitle": "Selected Projects",
+      "description": "Here are some of my projects that I have worked on recently.",
+      "projects": ["anime-scraper", "subnetting", "ppl-adventure"]
+    }
+  },
+  "about": {
+    "profile": {
+      "title": "Building solutions & Optimizing systems.",
+      "description": "I'm a full stack developer who loves building smooth, scalable apps. I've worked with different technologies and enjoy tackling tricky problems while always learning something new.",
+      "resume": "My Resume"
+    },
+    "experience": {
+      "title": "Work History",
+      "subtitle": "Experience",
+      "description": "Here are some of the companies I have worked for and the roles I have held.",
+      "jobs": [
+        {
+          "logo": "telconet",
+          "role": "Jr. Engineer",
+          "company": "Telconet LATAM",
+          "date": "Jan 2024 - Present",
+          "activities": [
+            "Led the migration of a legacy system, overseeing the entire process from designing the new architecture to the final implementation, ensuring a smooth transition and enhanced system capabilities.",
+            "Developed web systems using Vue.js and Node.js to automate tasks, reducing manual workload and human review.",
+            "Engineered programs to access devices via SSH and apply configurations, improving system administration.",
+            "Collaborated with the networking team to optimize automation solutions, enhancing overall performance."
+          ]
+        },
+        {
+          "logo": "siemav",
+          "role": "Full Stack Developer",
+          "company": "Siemav",
+          "date": "Aug 2023 - Jan 2024",
+          "activities": [
+            "Migrated the inventory system from Excel to a web-based platform, boosting process speed by 20% and improving operational visibility.",
+            "Designed PostgreSQL databases and developed RESTful APIs with FastAPI to support scalable and secure backend operations.",
+            "Collaborated with frontend teams to enhance dashboard features and optimize user experience."
+          ]
+        },
+        {
+          "logo": "espol",
+          "role": "Algorithm Analysis Academic Assistant",
+          "company": "ESPOL",
+          "date": "May 2022 - Aug 2023",
+          "activities": [
+            "Taught algorithm analysis, guiding students through exercises and problem-solving strategies.",
+            "Mentored students on algorithm implementation and optimization, preparing them for competitions.",
+            "Developed educational content and provided individual support to enhance understanding of key concepts."
+          ]
+        },
+        {
+          "logo": "shippify",
+          "role": "Backend Developer",
+          "company": "Shippify",
+          "date": "Sep 2022 - Jan 2023",
+          "activities": [
+            "Developed scalable server-side applications using JavaScript, Node.js, and React to meet customer needs.",
+            "Designed and implemented new features, improving software functionality and business outcomes.",
+            "Conducted testing and debugging to ensure high-quality, reliable software in production."
+          ]
+        },
+        {
+          "logo": "datil",
+          "role": "Software Development Intern",
+          "company": "Dátil",
+          "date": "Feb 2022 - May 2023",
+          "activities": [
+            "Contributed to the development of new electronic billing features, enhancing system functionality.",
+            "Implemented solutions using Clojure, addressing reported issues and improving performance.",
+            "Collaborated with the team to maintain and upgrade existing applications, ensuring seamless software operation."
+          ]
+        }
+      ]
+    },
+    "skills": {
+      "title": "Skills",
+      "subtitle": "My Toolbox",
+      "categories": [
+        {
+          "title": "Frontend",
+          "skills": [
+            "html5",
+            "css3",
+            "javascript",
+            "typescript",
+            "react",
+            "vuejs",
+            "next",
+            "astro",
+            "tailwindcss",
+            "redux",
+            "jwt",
+            "shadcn",
+            "figma"
+          ]
+        },
+        {
+          "title": "Backend",
+          "skills": [
+            "nodejs",
+            "express",
+            "sequelize",
+            "fastapi",
+            "python",
+            "java",
+            "csharp",
+            "mysql",
+            "postgresql",
+            "mongodb",
+            "redis",
+            "prisma"
+          ]
+        },
+        {
+          "title": "Data Engineering & Analysis",
+          "skills": [
+            "pandas",
+            "selenium",
+            "beautifulsoup",
+            "playwright",
+            "seaborn",
+            "scikit-learn"
+          ]
+        },
+        {
+          "title": "DevOps & Tools",
+          "skills": ["docker", "git", "github", "gitlab", "jupyter"]
+        },
+        {
+          "title": "Aditional Skills",
+          "skills": ["algorithm", "postman", "unity", "godot", "salesforce"]
+        }
+      ]
+    },
+    "awards": {
+      "title": "Awards",
+      "subtitle": "Awards & Recognitions",
+      "description": "Here are some of the awards and certifications I have received.",
+      "awards": [
+        {
+          "title": "Senior TAWS Member",
+          "issuer": "TAWS Club",
+          "date": "2021 - Present"
+        },
+        {
+          "title": "IEEEXtreme Cuenca Winner",
+          "issuer": "Cuenca University",
+          "date": "2023"
+        },
+        {
+          "title": "Devsu Hackathon Finalist",
+          "issuer": "Devsu Hackathon",
+          "date": "2022"
+        }
+      ]
+    },
+    "certifications": {
+      "title": "Certifications",
+      "subtitle": "Certifications & Courses",
+      "description": "Here are some of the awards and certifications I have received.",
+      "certifications": [
+        {
+          "title": "IBM Data Science Professional Specialization",
+          "issuer": "Coursera",
+          "date": "2025"
+        },
+        {
+          "title": "Github Foundations",
+          "issuer": "Github",
+          "date": "2025"
+        },
+        {
+          "title": "Certified Associate Python Programmer",
+          "issuer": "Python Institute",
+          "date": "2025"
+        }
+      ]
+    }
+  },
+  "projects": {
+    "title": "My Work",
+    "subtitle": "Some Things I've Built",
+    "gallery": "Gallery",
+    "list": "List",
+    "headers": [
+      "Year",
+      "Project",
+      "Client",
+      "Status",
+      "Technologies",
+      "Actions"
+    ],
+    "projects": [
+      "anime-scraper",
+      "subnetting",
+      "ppl-adventure",
+      "urbapass-backend"
+    ],
+    "entry": {
+      "back": "Back to Projects",
+      "try": "Try it out"
+    }
+  },
+  "blog": {
+    "title": "My Writing",
+    "subtitle": "Thoughts & Ideas",
+    "description": "Here are some of the articles I have written recently."
+  },
+  "contact": {
+    "connect": {
+      "title": "Connect with me",
+      "subtitle": "Let's code something amazing together",
+      "form": {
+        "name": {
+          "label": "Full Name",
+          "placeholder": "Enter your full name",
+          "error": "Name is required"
+        },
+        "email": {
+          "label": "Email",
+          "placeholder": "Enter your email address",
+          "error": "Email invalid"
+        },
+        "message": {
+          "label": "Message",
+          "placeholder": "Enter your message",
+          "error": "Message is required"
+        },
+        "submit": "Submit",
+        "loading": "Loading...",
+        "success": "Thank you for your message! I will get back to you as soon as possible.",
+        "error": "There was an error sending your message. Please try again."
+      },
+      "contactCard": "If you are looking for a developer to help you with your project, feel free to contact me. I am always open to new opportunities and collaborations. Let's create something amazing together!"
+    },
+    "faqs": {
+      "title": "FAQs",
+      "subtitle": "Have Questions?",
+      "questions": [
+        {
+          "title": "What is your current role?",
+          "content": "I am currently working as a Full Stack developer, focusing on web development and data automation."
+        },
+        {
+          "title": "How much doest it cost for a project?",
+          "content": "The cost of a project depends on its complexity and requirements. I offer competitive rates and I'm open to discussing your budget."
+        },
+        {
+          "title": "How can I contact you?",
+          "content": "You can contact me through the contact form on this website. I will get back to you as soon as possible."
+        },
+        {
+          "title": "Are you available for new projects or freelance work?",
+          "content": "Yes, I am always open to new opportunities and collaborations. Feel free to reach out to me through the contact form."
+        },
+        {
+          "title": "Where can I see examples of your work?",
+          "content": "You can check out my Projects section to see some of the projects I have worked on recently. I am constantly updating it with new work."
+        }
+      ]
+    }
+  }
 }

@@ -1,0 +1,25 @@
+---
+import { getTranslations } from "@/i18n";
+
+import Recognitions from "./Recognitions.astro";
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props as Props;
+const t = getTranslations(lang);
+const {
+  about: { certifications },
+} = t;
+---
+
+<section class="grid grid-cols-5 px-12 w-full mt-10">
+  <div class="flex flex-col col-span-2">
+    <span class="text-primary text-lg">✦ {certifications.title}</span>
+    <span class="text-4xl font-semibold">{certifications.subtitle}</span>
+  </div>
+  <div class="col-span-3">
+    <Recognitions recognitions={certifications.certifications} />
+  </div>
+</section>

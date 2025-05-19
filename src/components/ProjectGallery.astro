@@ -1,0 +1,42 @@
+---
+import { projectsMap } from "@/lib/project";
+import { Image } from "astro:assets";
+
+const { projectId, lang, loading } = Astro.props;
+const project = projectsMap[projectId];
+
+type LangKey = "en" | "es";
+const langKey = lang as LangKey;
+
+const info = project[langKey];
+---
+
+<a
+  href={`/${lang}/project/${project.id}`}
+  class="flex flex-col h-full max-w-96 w-full mx-auto border rounded-lg hover:cursor-pointer"
+  aria-label={`View ${project.title} project`}
+>
+  <div class="w-full aspect-[16/9] overflow-hidden rounded-t-md">
+    <Image
+      src={project.cover}
+      alt={`${project.title} cover`}
+      class="w-full h-full object-cover"
+      width={project.cover.width}
+      height={project.cover.height}
+      loading={loading}
+    />
+  </div>
+
+  <div
+    class="flex flex-col justify-between flex-1 border-t-2 border-accent/50 px-4 py-2 bg-accent/40 space-y-2"
+  >
+    <div class="flex flex-row justify-between">
+      <span class="text-xl font-semibold">{project.title}</span>
+      <span class="text-sm text-foreground/50">{project.year}</span>
+    </div>
+    <span class="flex-1 text-foreground/50">{info.description}</span>
+    <span class="text-right text-foreground/50 text-sm">
+      {info.status}
+    </span>
+  </div>
+</a>
