@@ -1,0 +1,25 @@
+---
+import { getTranslations } from "@/i18n";
+
+import AccordionList from "../AccordionList";
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props as Props;
+const t = getTranslations(lang);
+const {
+  contact: { faqs },
+} = t;
+---
+
+<section class="grid grid-cols-5 px-12 w-full mt-10 mb-12">
+  <div class="flex flex-col col-span-2">
+    <span class="text-primary text-lg">✦ {faqs.title}</span>
+    <span class="text-4xl font-semibold">{faqs.subtitle}</span>
+  </div>
+  <div class="col-span-3">
+    <AccordionList client:only="react" items={faqs.questions} />
+  </div>
+</section>

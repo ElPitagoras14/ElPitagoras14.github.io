@@ -1,0 +1,25 @@
+---
+interface Props {
+  recognitions: {
+    title: string;
+    issuer: string;
+    date: string;
+  }[];
+}
+
+const { recognitions } = Astro.props;
+---
+
+<div class="flex flex-col">
+  {
+    recognitions.map((recog) => (
+      <div class="flex justify-between border-b py-3 px-4">
+        <div class="flex flex-col space-y-1">
+          <span class="text-md font-semibold">{recog.title}</span>
+          <span class="text-foreground/60 text-sm">{recog.issuer}</span>
+        </div>
+        <span class="text-foreground/60 text-sm">{recog.date}</span>
+      </div>
+    ))
+  }
+</div>

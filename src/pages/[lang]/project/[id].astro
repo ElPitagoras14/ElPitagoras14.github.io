@@ -1,0 +1,65 @@
+---
+import { getTranslations } from "@/i18n";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import ProjectEntry from "@/components/projects/ProjectEntry.astro";
+import CallToAction from "@/components/CallToAction.astro";
+
+export async function getStaticPaths() {
+  const langs = ["en", "es"];
+  const t = getTranslations(langs[0]);
+  const projectsIds = t.projects.projects;
+
+  const staticPaths: { params: { lang: string; id: string } }[] = [];
+  projectsIds.forEach((projectId) => {
+    staticPaths.push({
+      params: {
+        lang: "es",
+        id: projectId,
+      },
+    });
+    staticPaths.push({
+      params: {
+        lang: "en",
+        id: projectId,
+      },
+    });
+  });
+
+  return staticPaths;
+}
+
+const { lang = "en", id } = Astro.params;
+
+const t = getTranslations(lang);
+---
+
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+  if (typeof localStorage !== "undefined") {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  }
+</script>
+
+<BaseLayout lang={lang} title={t.title}>
+  <main class="w-[85%] px-8 mx-auto flex flex-col items-center space-y-6 mb-6">
+    <ProjectEntry lang={lang} projectId={id} />
+    <CallToAction lang={lang} />
+  </main>
+</BaseLayout>

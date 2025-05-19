@@ -1,0 +1,46 @@
+---
+import { getTranslations } from "@/i18n";
+
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+import Connect from "@/components/contact/Connect.astro";
+import Faqs from "@/components/contact/Faqs.astro";
+
+export async function getStaticPaths() {
+  return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
+}
+
+const { lang = "en" } = Astro.params;
+const t = getTranslations(lang);
+---
+
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+  if (typeof localStorage !== "undefined") {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  }
+</script>
+
+<BaseLayout lang={lang} title={t.title}>
+  <main class="w-[85%] px-8 mx-auto flex flex-col items-center space-y-6 mb-6">
+    <Connect lang={lang} />
+    <Faqs lang={lang} />
+  </main>
+</BaseLayout>

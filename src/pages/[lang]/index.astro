@@ -1,5 +1,13 @@
 ---
-import { getTranslations } from "../../i18n";
+import { getTranslations } from "@/i18n";
+
+import Hero from "@/components/home/Hero.astro";
+import HorizontalScroll from "@/components/home/HorizontalScroll";
+import About from "@/components/home/About.astro";
+import Expertise from "@/components/home/Expertise.astro";
+import Work from "@/components/home/Work.astro";
+import CallToAction from "@/components/CallToAction.astro";
+import BaseLayout from "@/layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
   return [{ params: { lang: "es" } }, { params: { lang: "en" } }];
@@ -9,15 +17,37 @@ const { lang = "en" } = Astro.params;
 const t = getTranslations(lang);
 ---
 
-<html lang={lang}>
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} >
-  </head>
-  <body>
-    <h1>{t.welcome}</h1>
-    <p>{t.description}</p>
-  </body>
-</html>
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "dark"
+      : "light";
+  };
+  const isDark = getThemePreference() === "dark";
+  document.documentElement.classList[isDark ? "add" : "remove"]("dark");
+
+  if (typeof localStorage !== "undefined") {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains("dark");
+      localStorage.setItem("theme", isDark ? "dark" : "light");
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ["class"],
+    });
+  }
+</script>
+
+<BaseLayout lang={lang} title={t.title}>
+  <main class="w-[85%] px-8 mx-auto flex flex-col items-center space-y-6 mb-6">
+    <Hero lang={lang} />
+    <HorizontalScroll lang={lang} client:only="react" />
+    <About lang={lang} />
+    <Expertise lang={lang} />
+    <Work lang={lang} />
+    <CallToAction lang={lang} />
+  </main>
+</BaseLayout>

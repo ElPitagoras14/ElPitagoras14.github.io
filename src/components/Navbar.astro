@@ -1,0 +1,75 @@
+---
+import { getTranslations } from "@/i18n";
+import { ModeToggle } from "./ModeToggle";
+import { Image } from "astro:assets";
+
+interface Props {
+  lang: string;
+  highlight: string;
+}
+
+const { lang, highlight } = Astro.props as Props;
+const t = getTranslations(lang);
+
+const { navbar } = t;
+
+const lastParts = highlight.split("/").splice(2).join("/");
+---
+
+<nav
+  class="flex flex-row justify-between items-center py-4 px-6 sticky top-0 z-50 border-b border-accent font-semibold text-lg"
+>
+  <div class="flex space-x-4 items-center">
+    <Image
+      src="/assets/profile.png"
+      alt="Logo"
+      class="w-10 h-10 rounded-full"
+      width={48}
+      height={48}
+      loading="eager"
+    />
+    <span class="text-xl">JG</span>
+  </div>
+  <div class="flex flex-row space-x-6 text-foreground/50">
+    <a
+      class={highlight === `/${lang}/`
+        ? "text-foreground"
+        : "hover:text-foreground"}
+      href=`/${lang}/`>{navbar.home}</a
+    >
+    <a
+      class={highlight === `/${lang}/about`
+        ? "text-foreground"
+        : "hover:text-foreground"}
+      href=`/${lang}/about`>{navbar.about}</a
+    >
+    <a
+      class={highlight === `/${lang}/projects`
+        ? "text-foreground"
+        : "hover:text-foreground"}
+      href=`/${lang}/projects`>{navbar.projects}</a
+    >
+    <a
+      class={highlight === `/${lang}/blog`
+        ? "text-foreground"
+        : "hover:text-foreground"}
+      href=`/${lang}/blog`>{navbar.blog}</a
+    >
+    <a
+      class={highlight === `/${lang}/contact`
+        ? "text-foreground"
+        : "hover:text-foreground"}
+      href=`/${lang}/contact`>{navbar.contact}</a
+    >
+  </div>
+  <div class="flex flex-row items-center space-x-2">
+    {
+      lang === "en" ? (
+        <a href={`/es/${lastParts}`}>EN</a>
+      ) : (
+        <a href={`/en/${lastParts}`}>ES</a>
+      )
+    }
+    <ModeToggle client:load />
+  </div>
+</nav>

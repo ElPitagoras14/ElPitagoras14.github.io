@@ -1,0 +1,53 @@
+---
+import { format } from "date-fns";
+import { es, enUS } from "date-fns/locale";
+
+interface BlogEntryProps {
+  entry: {
+    data: {
+      id: string;
+      title: string;
+      date: Date;
+      summary: string;
+    };
+  };
+}
+
+const { entry, lang } = Astro.props;
+
+const { data: info } = entry;
+
+const localeMap = {
+  es: es,
+  en: enUS,
+};
+
+const formatMap = {
+  es: "MMMM d, yyyy, HH:mm",
+  en: "MMMM d, yyyy, HH:mm",
+};
+
+type langKey = "es" | "en";
+
+const langKey = lang as langKey;
+
+let formattedDate = format(info.date, formatMap[langKey] ?? formatMap.en, {
+  locale: localeMap[langKey] ?? enUS,
+});
+
+if (langKey === "es") {
+  formattedDate =
+    formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+}
+---
+
+<div class="grid grid-cols-2 border-b-2 border-accent/50 py-4">
+  <div class="flex items-center gap-4">
+    <span class="text-foreground/60">{formattedDate}</span>
+    <div class="w-24 border-t-2 border-primary"></div>
+  </div>
+  <div class="flex flex-col space-y-2 hover:cursor-pointer hover:text-primary">
+    <a href={`/${lang}/blog/${info.id}`} class="text-4xl font-semibold">{info.title}</a>
+    <span class="text-foreground/60">{info.summary}</span>
+  </div>
+</div>

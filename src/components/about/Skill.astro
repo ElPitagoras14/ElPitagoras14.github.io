@@ -1,0 +1,68 @@
+---
+import { getTranslations } from "@/i18n";
+import { Icon } from "astro-icon/components";
+import { iconsMap, imageChange } from "@/lib/icon";
+
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import React from "react";
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props as Props;
+const t = getTranslations(lang);
+const {
+  about: { skills },
+} = t;
+---
+
+<section class="w-full px-12 mt-6 flex flex-col space-y-8">
+  <div class="flex flex-col space-y-1">
+    <span class="text-primary text-lg">✦ {skills.title}</span>
+    <span class="text-4xl font-semibold">{skills.subtitle}</span>
+  </div>
+  <div class="grid grid-cols-12 items-center gap-y-4">
+    {
+      skills.categories.map((category, index) => (
+        <React.Fragment>
+          <span class="text-3xl text-wrap text-right font-medium col-span-3 text-foreground/60">
+            {category.title}
+          </span>
+          <div class="h-full w-full flex items-center justify-center">
+            <Separator orientation="vertical" className="py-8" />
+          </div>
+          <div class="col-span-8 flex flex-wrap space-x-2 gap-y-2">
+            {category.skills.map((skill) => {
+              const { icon, name, isDefault } = iconsMap[skill];
+              const iconName = isDefault ? "default" : icon;
+
+
+              return (
+                <Badge
+                  variant="secondary"
+                  className="px-3 py-2 flex items-center"
+                >
+                  <span class="mr-1">
+                    {imageChange.includes(icon) ? (
+                      <img
+                        src={`/techs/${icon}.svg`}
+                        alt={name}
+                        class="w-6 h-6"
+                        loading="lazy"
+                      />
+                    ) : (
+                      <Icon name={`techs/${iconName}`} class="w-6 h-6"/>
+                    )}
+                  </span>
+                  <span class="text-base">{name}</span>
+                </Badge>
+              );
+            })}
+          </div>
+        </React.Fragment>
+      ))
+    }
+  </div>
+</section>
