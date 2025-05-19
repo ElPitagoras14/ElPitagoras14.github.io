@@ -100,8 +100,8 @@ export default function ContactForm({ lang }: ContactFormProps) {
               name={fieldInfo.name}
               render={({ field }) => (
                 <FormItem className="space-y-1">
-                  <FormLabel>{fieldInfo.label}</FormLabel>
-                  <FormControl>
+                  <FormLabel className="text-sm md:text-base">{fieldInfo.label}</FormLabel>
+                  <FormControl className="text-sm md:text-base">
                     {fieldInfo.type === "textarea" ? (
                       <Textarea
                         placeholder={fieldInfo.label}
@@ -121,7 +121,7 @@ export default function ContactForm({ lang }: ContactFormProps) {
               )}
             />
           ))}
-          <Button className="text-lg px-6 py-5 rounded-4xl hover:cursor-pointer">
+          <Button className="text-base md:text-lg px-6 py-5 rounded-4xl hover:cursor-pointer">
             {form.submit}
           </Button>
         </div>

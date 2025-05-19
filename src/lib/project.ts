@@ -63,6 +63,7 @@ const projects: Project[] = [
       "python",
       "beautifulsoup",
       "playwright",
+      "react",
       "next",
       "typescript",
       "redux",
@@ -124,7 +125,7 @@ const projects: Project[] = [
     role: "Frontend Developer",
     cover: subnettingCover,
     link: "https://github.com/ElPitagoras14/subnetting-static-web",
-    technologies: ["fastapi", "python", "next", "typescript"],
+    technologies: ["react", "next", "typescript"],
     en: {
       description:
         "Code written in python where the algorithm for IP segmentation with FLSM and VLSM techniques is used.",

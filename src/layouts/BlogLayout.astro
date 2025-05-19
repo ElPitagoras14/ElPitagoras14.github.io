@@ -1,6 +1,7 @@
 ---
 import Navbar from "@/components/Navbar.astro";
 import Footer from "@/components/Footer.astro";
+import BottomBar from "@/components/BottomBar.astro";
 
 const { title, lang } = Astro.props;
 const currentUrl = Astro.url.pathname;
@@ -18,5 +19,6 @@ const currentUrl = Astro.url.pathname;
     <Navbar lang={lang} highlight={currentUrl} />
     <slot />
     <Footer lang={lang} />
+    <BottomBar lang={lang} highlight={currentUrl} />
   </body>
 </html>

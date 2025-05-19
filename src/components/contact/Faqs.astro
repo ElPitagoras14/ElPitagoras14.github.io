@@ -14,12 +14,12 @@ const {
 } = t;
 ---
 
-<section class="grid grid-cols-5 px-12 w-full mt-10 mb-12">
-  <div class="flex flex-col col-span-2">
+<section class="flex flex-col md:grid grid-cols-5 w-full mt-2 md:mt-6 px-6 md:px-12 mb-4">
+  <div class="flex flex-col col-span-2 space-y-1">
     <span class="text-primary text-lg">✦ {faqs.title}</span>
     <span class="text-4xl font-semibold">{faqs.subtitle}</span>
   </div>
-  <div class="col-span-3">
+  <div class="col-span-3 mt-4 md:mt-0">
     <AccordionList client:only="react" items={faqs.questions} />
   </div>
 </section>

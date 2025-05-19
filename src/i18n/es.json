@@ -31,7 +31,7 @@
     ],
     "about": {
       "title": "Sobre mí",
-      "description": "Soy Jonathan García, un desarrollador ecuatoriano enfocado en algoritmos y optimización de software. A los 14 años, la curiosidad por cómo se crean los videojuegos me llevó a la programación y la resolución de problemas. Disfruto la programación competitiva, los proyectos desafiantes y crear soluciones eficientes. He colaborado en el desarrollo de productos digitales de alto impacto. Fuera del código, me apasionan los videojuegos, la música y el anime; Steins;Gate es mi favorito. Siempre estoy abierto a nuevas oportunidades y colaboraciones."
+      "description": "Soy Jonathan García, un desarrollador ecuatoriano enfocado en algoritmos y optimización de software. A los 14 años, la curiosidad por cómo se crean los videojuegos me llevó a la programación y la resolución de problemas. Disfruto la programación competitiva, los proyectos desafiantes y crear soluciones eficientes. He colaborado en el desarrollo de productos digitales de alto impacto. Fuera del código, me apasionan los videojuegos, la música y el anime Steins;Gate es mi favorito. Siempre estoy abierto a nuevas oportunidades y colaboraciones."
     },
     "expertise": {
       "title": "Mis competencias",
@@ -233,6 +233,11 @@
           "title": "Certified Associate Python Programmer",
           "issuer": "Python Institute",
           "date": "2025"
+        },
+        {
+          "title": "Salesforce Certified Platform Developer I",
+          "issuer": "Salesforce",
+          "date": "2023"
         }
       ]
     }
