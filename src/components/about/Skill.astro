@@ -25,50 +25,46 @@ const {
     <span class="text-primary text-base md:text-lg">✦ {skills.title}</span>
     <span class="text-2xl md:text-4xl font-semibold">{skills.subtitle}</span>
   </div>
-  <div
-    class="flex flex-col md:grid grid-cols-12 items-center space-y-2 md:gap-y-4"
-  >
-    {
-      skills.categories.map((category) => (
-        <React.Fragment>
-          <span class="text-2xl md:text-3xl text-wrap pb-2 md:pb-0 md:mb-0 text-center md:text-right font-medium col-span-3 text-foreground/60 border-b-2 md:border-b-0 w-full">
-            {category.title}
-          </span>
-          <div class="hidden h-full w-full md:flex items-center justify-center">
-            <Separator orientation="vertical" className="py-8" />
-          </div>
-          <div class="col-span-8 flex flex-wrap justify-center md:justify-start space-x-1 md:space-x-2 gap-y-1 md:gap-y-2 mt-2 md:mt-0">
-            {category.skills.map((skill) => {
-              const { icon, name, isDefault } = iconsMap[skill];
-              const iconName = isDefault ? "default" : icon;
+  {
+    skills.categories.map((category) => (
+      <div class="flex flex-col md:grid grid-cols-12 items-center space-y-2 md:gap-y-4 border-b md:border-0 pb-8 md:pb-0">
+        <span class="text-2xl md:text-3xl text-wrap pb-2 md:pb-0 md:mb-0 text-center md:text-right font-medium col-span-3 text-foreground/60 w-full">
+          {category.title}
+        </span>
+        <div class="hidden h-full w-full md:flex items-center justify-center">
+          <Separator orientation="vertical" className="py-8" />
+        </div>
+        <div class="col-span-8 flex flex-wrap justify-center md:justify-start space-x-1 md:space-x-2 gap-y-1 md:gap-y-2">
+          {category.skills.map((skill) => {
+            const { icon, name, isDefault } = iconsMap[skill];
+            const iconName = isDefault ? "default" : icon;
 
-              return (
-                <Badge
-                  variant="secondary"
-                  className="px-2 md:px-3 py-1 md:py-2 flex items-center"
-                >
-                  <span class="mr-1">
-                    {imageChange.includes(icon) ? (
-                      <img
-                        src={`/techs/${icon}.svg`}
-                        alt={name}
-                        class="w-5 md:w-6 h-5 md:h-6"
-                        loading="lazy"
-                      />
-                    ) : (
-                      <Icon
-                        name={`techs/${iconName}`}
-                        class="w-5 md:w-6 h-5 md:h-6"
-                      />
-                    )}
-                  </span>
-                  <span class="text-base">{name}</span>
-                </Badge>
-              );
-            })}
-          </div>
-        </React.Fragment>
-      ))
-    }
-  </div>
+            return (
+              <Badge
+                variant="secondary"
+                className="px-2 md:px-3 py-1 md:py-2 flex items-center"
+              >
+                <span class="mr-1">
+                  {imageChange.includes(icon) ? (
+                    <img
+                      src={`/techs/${icon}.svg`}
+                      alt={name}
+                      class="w-5 md:w-6 h-5 md:h-6"
+                      loading="lazy"
+                    />
+                  ) : (
+                    <Icon
+                      name={`techs/${iconName}`}
+                      class="w-5 md:w-6 h-5 md:h-6"
+                    />
+                  )}
+                </span>
+                <span class="text-base">{name}</span>
+              </Badge>
+            );
+          })}
+        </div>
+      </div>
+    ))
+  }
 </section>
