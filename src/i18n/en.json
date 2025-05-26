@@ -168,7 +168,8 @@
             "postgresql",
             "mongodb",
             "redis",
-            "prisma"
+            "prisma",
+            "rabbitmq"
           ]
         },
         {
