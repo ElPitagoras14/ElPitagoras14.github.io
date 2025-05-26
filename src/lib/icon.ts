@@ -49,6 +49,7 @@ const icons: Icon[] = [
   { name: "2D Design", icon: "2d-design", isDefault: true },
   { name: "Sequelize ORM", icon: "sequelize" },
   { name: "Express", icon: "express" },
+  { name: "RabbitMQ", icon: "rabbitmq" },
 ];
 
 export const iconsMap = icons.reduce((acc, iconInfo) => {
