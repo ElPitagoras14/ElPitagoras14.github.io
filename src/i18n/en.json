@@ -212,11 +212,6 @@
           "title": "Devsu Hackathon Finalist",
           "issuer": "Devsu Hackathon",
           "date": "2022"
-        },
-        {
-          "title": "Salesforce Certified Platform Developer I",
-          "issuer": "Salesforce",
-          "date": "2023"
         }
       ]
     },
@@ -239,6 +234,11 @@
           "title": "Certified Associate Python Programmer",
           "issuer": "Python Institute",
           "date": "2025"
+        },
+        {
+          "title": "Salesforce Certified Platform Developer I",
+          "issuer": "Salesforce",
+          "date": "2023"
         }
       ]
     }
