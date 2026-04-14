@@ -1,0 +1,36 @@
+---
+import Layout from "@/layouts/main.astro";
+import Navbar from "@/components/Navbar.astro";
+import Footer from "@/components/Footer.astro";
+import ProfileHeader from "@/components/About/ProfileHeader.astro";
+import ExperienceSection from "@/components/About/ExperienceSection.astro";
+import EducationSection from "@/components/About/EducationSection.astro";
+import SkillsSection from "@/components/About/SkillsSection.astro";
+import AwardsSection from "@/components/About/AwardsSection.astro";
+---
+
+<Layout>
+  <Navbar />
+  
+  <div class="mx-auto max-w-4xl px-6 py-20">
+    <ProfileHeader />
+    
+    <div class="py-20">
+      <ExperienceSection />
+    </div>
+    
+    <div class="py-20">
+      <EducationSection />
+    </div>
+    
+    <div class="py-20">
+      <SkillsSection />
+    </div>
+    
+    <div class="py-20">
+      <AwardsSection />
+    </div>
+  </div>
+  
+  <Footer />
+</Layout>
