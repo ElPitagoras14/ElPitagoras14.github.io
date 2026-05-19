@@ -1,0 +1,98 @@
+---
+import { Briefcase, GraduationCap, MapPin } from "lucide-react";
+import { GithubIcon } from "@/components/icons/github";
+import { Button } from "@/components/ui/button";
+import { getDictionary, socialMedia } from "@/i18n/utils";
+import type { LangType } from "@/lib/interfaces";
+import { LeetcodeIcon } from "../icons/leetcode";
+import { LinkedinIcon } from "../icons/linkedin";
+
+interface Props {
+  lang: LangType;
+}
+
+const { lang } = Astro.props;
+const dict = getDictionary(lang);
+const section = dict.aboutPage.profileSection;
+---
+
+<div class="grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-12">
+  <!-- Left column -->
+  <div class="flex flex-col gap-6">
+    <!-- Avatar -->
+    <div class="flex items-center justify-center md:justify-start">
+      <div class="relative">
+        <div
+          aria-hidden="true"
+          class="absolute -inset-1 rounded-full bg-[conic-gradient(from_180deg_at_50%_50%,#60a5fa_0deg,#34d399_180deg,#60a5fa_360deg)] opacity-80 blur-[2px]"
+        >
+        </div>
+        <div
+          class="relative flex h-48 w-48 items-center justify-center rounded-full bg-card text-foreground text-3xl font-semibold tracking-wider select-none ring-1 ring-foreground/10"
+        >
+          <img src="/profile.png" alt="" class="rounded-full" />
+        </div>
+        <span
+          aria-hidden="true"
+          class="absolute -bottom-0.5 -right-1 size-10 rounded-full bg-emerald-400 ring-4 ring-background"
+        ></span>
+      </div>
+    </div>
+    <!-- Info list -->
+    <ul class="flex flex-col gap-2 text-sm text-muted-foreground">
+      <li class="flex items-center gap-2">
+        <MapPin className="size-4 shrink-0 text-blue-500 dark:text-blue-400" />
+        <span>{section.location}</span>
+      </li>
+      <li class="flex items-center gap-2">
+        <Briefcase
+          className="size-4 shrink-0 text-emerald-500 dark:text-emerald-400"
+        />
+        <span>{section.availability}</span>
+      </li>
+      <li class="flex items-center gap-2">
+        <GraduationCap
+          className="size-4 shrink-0 text-violet-500 dark:text-violet-400"
+        />
+        <span>{section.education}</span>
+      </li>
+    </ul>
+    <!-- Buttons -->
+    <div class="flex flex-wrap gap-2">
+      <a href={socialMedia.github} target="_blank" rel="noopener noreferrer">
+        <Button variant="outline" size="lg" tabIndex={-1}>
+          <GithubIcon className="w-4 h-4" />
+          GitHub
+        </Button>
+      </a>
+      <a href={socialMedia.linkedin} target="_blank" rel="noopener noreferrer">
+        <Button variant="outline" size="lg" tabIndex={-1}>
+          <LinkedinIcon className="w-4 h-4" />
+          LinkedIn
+        </Button>
+      </a>
+      <!-- <a href={socialMedia.linkedin} target="_blank" rel="noopener noreferrer">
+        <Button variant="outline" size="lg" tabIndex={-1}>
+          <LeetcodeIcon className="w-4 h-4" />
+          LeetCode
+        </Button>
+      </a> -->
+    </div>
+  </div>
+
+  <!-- Right column -->
+  <div class="flex flex-col gap-6">
+    <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">
+      {section.aboutMeTitle}
+    </h2>
+    <div class="space-y-4 max-w-prose">
+      {
+        section.paragraphs.map((p) => (
+          <p class="text-sm md:text-base text-muted-foreground leading-relaxed">
+            {p}
+          </p>
+        ))
+      }
+    </div>
+  </div>
+</div>

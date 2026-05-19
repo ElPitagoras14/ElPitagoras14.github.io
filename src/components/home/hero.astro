@@ -1,0 +1,88 @@
+---
+import { getDictionary } from "@/i18n/utils";
+import type { LangType } from "@/lib/interfaces";
+import { Badge } from "../ui/badge";
+import { Button } from "../ui/button";
+import TerminalTyping from "./terminal-typing";
+
+const { lang } = Astro.params as { lang: LangType };
+const dict = getDictionary(lang);
+const section = dict.homePage.heroSection;
+
+const highlightMetrics = (text: string) =>
+  text.replace(
+    /(\d+\+?[\w/]*(?:\s*(?:hours\/month|hrs\/mes|years|años|workflows|flujos))?)/gi,
+    (m) =>
+      `<span class="text-emerald-600 dark:text-emerald-400 font-medium">${m}</span>`,
+  );
+---
+
+<div class="relative">
+  <!-- Soft radial backdrop, sits behind hero only. Breaks out of the max-w container so the blur bleeds full-viewport. -->
+  <div
+    aria-hidden="true"
+    class="pointer-events-none absolute left-1/2 -translate-x-1/2 -top-24 -bottom-32 w-screen -z-10 overflow-hidden mask-[linear-gradient(to_bottom,transparent_0%,black_15%,black_75%,transparent_100%)]"
+  >
+    <div
+      class="absolute left-1/2 top-0 h-150 w-275 -translate-x-1/2 rounded-full bg-blue-500/15 blur-[120px] opacity-70"
+    >
+    </div>
+    <div
+      class="absolute right-[10%] top-32 h-100 w-125 rounded-full bg-emerald-500/10 blur-[100px] opacity-60"
+    >
+    </div>
+  </div>
+
+  <div
+    class="flex flex-col md:flex-row justify-center items-center gap-12 md:gap-20 lg:gap-28"
+  >
+    <div class="flex flex-col space-y-8 w-full md:flex-1">
+      <div class="flex flex-col gap-y-5">
+        <Badge
+          variant="outline"
+          className="self-start text-xs uppercase tracking-[0.18em] text-blue-700 dark:text-blue-300 border-blue-400/30 bg-blue-400/5 px-3 py-1"
+        >
+          {section.badgeSummary}
+        </Badge>
+
+        <p
+          class="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-[1.05]"
+        >
+          Jonathan <span class="text-blue-600 dark:text-blue-400">García</span>
+        </p>
+        <p
+          class="text-base md:text-lg text-blue-600 dark:text-blue-400 font-medium"
+        >
+          {section.role}
+        </p>
+        <p
+          class="text-sm md:text-base leading-relaxed max-w-xl text-muted-foreground"
+        >
+          {
+            section.brief.map((item) => (
+              <span
+                class={item.type === "light" ? "text-foreground" : ""}
+                set:html={highlightMetrics(item.text) + " "}
+              />
+            ))
+          }
+        </p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+        <a href={`/${lang}/projects`}>
+          <Button size="lg">{section.workCta}</Button>
+        </a>
+        <a
+          href="https://rxresu.me/elpitagoras14/software-engineer-en"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button variant="outline" size="lg">{section.resumeCta}</Button>
+        </a>
+      </div>
+    </div>
+    <div class="w-full md:flex-1 md:max-w-md">
+      <TerminalTyping client:idle className="min-h-70" />
+    </div>
+  </div>
+</div>

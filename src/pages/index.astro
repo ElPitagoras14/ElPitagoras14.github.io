@@ -1,8 +1,46 @@
 ---
-import Layout from "@/layouts/main.astro";
+const canonical = "https://jgarciaalba.dev/en";
 ---
-
-<Layout>
-  <main class="max-w-5xl mx-auto px-6">
-  </main>
-</Layout>
+<!doctype html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="refresh" content="0;url=/en" />
+  <link rel="canonical" href={canonical} />
+  <script is:inline>
+    (function() {
+      const theme = localStorage.getItem("theme");
+      if (theme === "light") {
+        document.documentElement.classList.remove("dark");
+      }
+    })();
+  </script>
+  <script>window.location.href = "/en";</script>
+  <style>
+    :root {
+      --background: oklch(1 0 0);
+      --foreground: oklch(0.141 0.005 285.823);
+    }
+    .dark {
+      --background: oklch(0.141 0.005 285.823);
+      --foreground: oklch(0.985 0 0);
+    }
+  </style>
+</head>
+<body style="background: var(--background); color: var(--foreground); margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center; font-family: system-ui, sans-serif;">
+  <div class="spinner"></div>
+  <style>
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid var(--foreground);
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+  </style>
+</body>
+</html>

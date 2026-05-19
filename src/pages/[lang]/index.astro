@@ -1,0 +1,29 @@
+---
+import Contact from "@/components/home/contact.astro";
+import Hero from "@/components/home/hero.astro";
+import Value from "@/components/home/value.astro";
+import Work from "@/components/home/work.astro";
+import Layout from "@/layouts/main.astro";
+
+export function getStaticPaths(): { params: { lang: "en" | "es" } }[] {
+  return [{ params: { lang: "en" } }, { params: { lang: "es" } }];
+}
+
+const { lang } = Astro.params;
+const seoTitle = lang === "es" ? "Inicio" : "Home";
+const seoDescription =
+  lang === "es"
+    ? "Software Engineer enfocado en aplicaciones web, automatización de infraestructura y DevOps. 3+ años construyendo sistemas en producción."
+    : "Software Engineer focused on web apps, infrastructure automation, and DevOps. 3+ years shipping production systems.";
+---
+
+<Layout lang={lang} title={seoTitle} description={seoDescription}>
+  <div class="max-w-6xl mx-auto px-6 md:px-10 py-16 md:py-24">
+    <div class="flex flex-col space-y-24 md:space-y-32">
+      <div data-reveal><Hero lang={lang} /></div>
+      <div data-reveal><Value lang={lang} /></div>
+      <div data-reveal><Work lang={lang} /></div>
+      <div data-reveal><Contact lang={lang} /></div>
+    </div>
+  </div>
+</Layout>

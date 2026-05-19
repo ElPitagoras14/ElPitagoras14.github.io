@@ -1,0 +1,28 @@
+---
+import { ExperienceAccordion } from "@/components/about/experience-accordion";
+import { Badge } from "@/components/ui/badge";
+import { getDictionary } from "@/i18n/utils";
+import type { LangType } from "@/lib/interfaces";
+
+interface Props {
+  lang: LangType;
+}
+
+const { lang } = Astro.props;
+const dict = getDictionary(lang);
+const section = dict.aboutPage.experienceSection;
+---
+
+<div class="space-y-6">
+  <!-- Section header — plain style -->
+  <div class="space-y-3">
+    <p class="text-xs uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 font-medium">{section.label}</p>
+    <div class="flex items-center gap-3 flex-wrap">
+      <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">{section.title}</h2>
+      <Badge variant="secondary">{section.badge}</Badge>
+    </div>
+  </div>
+
+  <!-- Accordion list — no outer wrapper bg -->
+  <ExperienceAccordion client:load jobs={section.jobs} />
+</div>

@@ -1,0 +1,57 @@
+---
+import { buttonVariants } from "@/components/ui/button";
+import Layout from "@/layouts/main.astro";
+
+// Detect language from the requested URL path so /es/foo shows ES copy
+const path = Astro.url.pathname;
+const lang: "en" | "es" = path.startsWith("/es") ? "es" : "en";
+
+const copy = {
+  en: {
+    eyebrow: "404 · Not found",
+    title: "This page took a wrong turn.",
+    description:
+      "The URL you followed doesn't lead anywhere. Maybe it moved, maybe it never existed. Either way, plenty of other places to go.",
+    cta: "Back to home",
+    secondary: "See projects",
+  },
+  es: {
+    eyebrow: "404 · No encontrado",
+    title: "Esta página tomó un camino equivocado.",
+    description:
+      "La URL que seguiste no lleva a ninguna parte. Tal vez se movió, tal vez nunca existió. De todos modos, hay muchos otros lugares a los que ir.",
+    cta: "Volver al inicio",
+    secondary: "Ver proyectos",
+  },
+}[lang];
+
+const seoTitle = copy.eyebrow;
+const seoDescription = copy.description;
+---
+
+<Layout lang={lang} title={seoTitle} description={seoDescription}>
+  <div class="max-w-3xl mx-auto px-6 md:px-10 py-24 md:py-32 min-h-[60vh] flex flex-col items-center justify-center text-center space-y-8">
+    <span class="font-mono text-[10rem] md:text-[14rem] font-semibold tracking-tighter leading-none bg-gradient-to-br from-blue-400 via-blue-500 to-emerald-400 bg-clip-text text-transparent select-none">
+      404
+    </span>
+    <div class="space-y-4 max-w-xl">
+      <p class="text-xs uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 font-medium">
+        {copy.eyebrow}
+      </p>
+      <h1 class="text-2xl md:text-4xl font-semibold tracking-tight leading-tight">
+        {copy.title}
+      </h1>
+      <p class="text-sm md:text-base text-muted-foreground leading-relaxed">
+        {copy.description}
+      </p>
+    </div>
+<div class="flex flex-col sm:flex-row gap-3">
+      <a href={lang === "es" ? "/es" : "/en"} class={buttonVariants({ size: "lg" })}>
+        {copy.cta}
+      </a>
+      <a href={lang === "es" ? "/es/projects" : "/en/projects"} class={buttonVariants({ variant: "outline", size: "lg" })}>
+        {copy.secondary}
+      </a>
+    </div>
+  </div>
+</Layout>

@@ -1,0 +1,73 @@
+---
+import { ArrowRightIcon } from "lucide-react";
+import { getDictionary } from "@/i18n/utils";
+import type { LangType } from "@/lib/interfaces";
+import { Badge } from "../ui/badge";
+import { Button } from "../ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
+
+const { lang } = Astro.params as { lang: LangType };
+const dict = getDictionary(lang);
+const section = dict.homePage.workSection;
+---
+
+<div class="flex flex-col space-y-8">
+  <div class="space-y-3">
+    <p
+      class="text-xs uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 font-medium"
+    >
+      {section.title}
+    </p>
+    <p class="text-2xl md:text-3xl font-semibold tracking-tight">
+      {section.subtitle}
+    </p>
+  </div>
+  <div class="flex flex-col space-y-4">
+    {
+      section.projects.map((project, i) => (
+        <a
+          href={`/${lang}/projects/${project.id}`}
+          data-reveal
+          style={`--reveal-delay: ${i * 100}ms`}
+          class="group flex flex-col md:flex-row justify-start items-stretch gap-0 rounded-xl overflow-hidden ring-1 ring-foreground/5 hover:ring-blue-400/30 transition-all duration-300 bg-muted/40 dark:bg-card"
+        >
+          <div class="relative w-full md:w-64 h-48 md:h-auto shrink-0 bg-linear-to-br from-blue-500/25 via-blue-500/10 to-transparent flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_1px_1px,rgba(96,165,250,0.4)_1px,transparent_0)] bg-size-[18px_18px]" />
+            <span class="relative font-mono text-2xl md:text-3xl font-semibold tracking-tight text-blue-700 dark:text-blue-300/90 group-hover:scale-105 transition-transform duration-300">
+              {project.id}
+            </span>
+          </div>
+          <div class="flex flex-col space-y-3 p-5 md:p-6 flex-1">
+            <div class="flex flex-wrap gap-2">
+              <Badge>{project.status}</Badge>
+              <Badge variant="outline">{project.year}</Badge>
+            </div>
+            <div class="space-y-1">
+              <p class="text-lg md:text-xl font-semibold tracking-tight">
+                {project.title}
+              </p>
+              <p class="text-muted-foreground text-sm">{project.subtitle}</p>
+            </div>
+            <p class="text-muted-foreground text-sm leading-relaxed">
+              {project.description}
+            </p>
+            <div class="flex flex-wrap gap-1.5">
+              {project.tags.map((tag) => (
+                <Badge variant="tech">{tag}</Badge>
+              ))}
+            </div>
+            <div class="pt-1">
+              <Button
+                variant="link"
+                className="px-0 text-blue-600 group-hover:text-blue-400"
+              >
+                <span>{section.cta}</span>
+                <ArrowRightIcon className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </div>
+          </div>
+        </a>
+      ))
+    }
+  </div>
+</div>

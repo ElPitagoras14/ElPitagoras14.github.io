@@ -1,0 +1,43 @@
+---
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { getDictionary } from "@/i18n/utils";
+import type { LangType } from "@/lib/interfaces";
+
+interface Props {
+  lang: LangType;
+}
+
+const { lang } = Astro.props;
+const dict = getDictionary(lang);
+const section = dict.aboutPage.educationSection;
+---
+
+<div class="space-y-6">
+  <!-- Section header — plain style -->
+  <div class="space-y-3">
+    <p class="text-xs uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 font-medium">{section.label}</p>
+    <h2 class="text-2xl md:text-3xl font-semibold tracking-tight">{section.title}</h2>
+  </div>
+
+  <!-- Education cards grid -->
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+    {
+      section.items.map((item) => (
+        <Card>
+          <CardHeader>
+            <CardTitle>
+              <p class="text-base font-semibold tracking-tight">{item.degree}</p>
+            </CardTitle>
+            <p class="text-sm text-blue-600 dark:text-blue-400 font-medium">{item.school}</p>
+            <p class="text-xs uppercase tracking-[0.15em] text-muted-foreground/80 font-mono">
+              {item.period} · {item.location}
+            </p>
+          </CardHeader>
+          <CardContent>
+            <p class="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+          </CardContent>
+        </Card>
+      ))
+    }
+  </div>
+</div>

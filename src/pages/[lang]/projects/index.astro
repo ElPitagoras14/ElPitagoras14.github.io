@@ -1,0 +1,55 @@
+---
+import ProjectsTable from "@/components/projects/projects-table";
+import { buttonVariants } from "@/components/ui/button";
+import { getDictionary } from "@/i18n/utils";
+import Layout from "@/layouts/main.astro";
+import type { LangType, Project } from "@/lib/interfaces";
+
+export function getStaticPaths(): { params: { lang: LangType } }[] {
+  return [{ params: { lang: "en" } }, { params: { lang: "es" } }];
+}
+
+const { lang } = Astro.params as { lang: LangType };
+const dict = getDictionary(lang);
+const d = dict.projectsPage;
+const projects = d.projects as Project[];
+
+const seoTitle = lang === "es" ? "Proyectos" : "Projects";
+const seoDescription =
+  lang === "es"
+    ? "Proyectos destacados: trabajo en producción, librerías open source y experimentos personales. Python, FastAPI, Docker, Next.js, infra y más."
+    : "Selected work: production projects, open source libraries, and personal experiments. Python, FastAPI, Docker, Next.js, infra and more.";
+---
+
+<Layout lang={lang} title={seoTitle} description={seoDescription}>
+  <div class="max-w-6xl mx-auto px-6 md:px-10 pt-16 md:pt-24 pb-12 md:pb-16 space-y-16 md:space-y-20">
+    <div class="space-y-4 max-w-3xl">
+      <p class="text-xs uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 font-medium">{d.listView.label}</p>
+      <h1 class="text-3xl md:text-5xl font-semibold tracking-tight leading-tight">{d.listView.title}</h1>
+      <p class="text-sm md:text-base text-muted-foreground leading-relaxed">{d.listView.subtitle}</p>
+    </div>
+
+    <section class="space-y-6">
+      <ProjectsTable
+        client:visible
+        projects={projects}
+        lang={lang}
+        dict={d.listView}
+        types={d.types}
+      />
+    </section>
+
+    <div class="text-center space-y-4 pt-30 border-t border-foreground/10">
+      <p class="text-xl md:text-2xl font-semibold tracking-tight">{d.listView.cta.title}</p>
+      <p class="text-base text-muted-foreground max-w-xl mx-auto leading-relaxed">{d.listView.cta.description}</p>
+      <div class="pt-2">
+        <a
+          href={`/${lang}/contact`}
+          class={buttonVariants({ size: "lg", className: "w-full sm:w-auto" })}
+        >
+          {d.listView.cta.button}
+        </a>
+      </div>
+    </div>
+  </div>
+</Layout>
