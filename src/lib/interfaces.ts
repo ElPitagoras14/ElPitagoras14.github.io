@@ -1,10 +1,12 @@
 export type LangType = "en" | "es";
+export type Period = { start: string; end: string | "present" };
+export type AwardDate = string | { start: string; end: string | "present" };
 
 export type ProjectType = "openSource" | "personal" | "ongoing" | "clubProject";
 export type ProjectStatus = "ongoing" | "completed";
 
 export interface ProjectLinks {
-  github: string;
+  github: string | null;
   live: string | null;
   liveLabel: string | null;
 }
@@ -15,22 +17,28 @@ export interface ProjectNarrative {
   learned: string;
 }
 
-export interface Project {
+export interface ProjectData {
   id: string;
-  title: string;
   year: string;
   type: ProjectType;
   status: ProjectStatus;
   madeAt: string;
-  role: string;
-  tagline: string;
-  shortDescription: string;
   stack: string[];
   links: ProjectLinks;
   featured: boolean;
-  narrative: ProjectNarrative;
   gallery?: string[];
 }
+
+export interface ProjectStrings {
+  id: string;
+  title: string;
+  role: string;
+  tagline: string;
+  shortDescription: string;
+  narrative: ProjectNarrative;
+}
+
+export interface Project extends ProjectData, ProjectStrings {}
 
 export type TypesDict = Record<ProjectType | ProjectStatus, string>;
 
@@ -65,4 +73,48 @@ export interface DetailViewDict {
   prevProject: string;
   nextProject: string;
   sections: { problem: string; approach: string; learned: string };
+}
+
+export interface Job {
+  company: string;
+  role: string;
+  period: string;
+  location: string;
+  metric: string;
+  activities: string[];
+}
+
+export interface SkillCategory {
+  title: string;
+  skills: string[];
+}
+
+export interface EducationItem {
+  degree: string;
+  school: string;
+  period: string;
+  location: string;
+  description: string;
+}
+
+export interface Award {
+  title: string;
+  issuer: string;
+  date: string;
+}
+
+export interface ContactLink {
+  id: string;
+  label: string;
+  href: string;
+  icon: string;
+}
+
+export interface ContactInfoDict {
+  availabilityTitle: string;
+  availabilityText: string;
+  availabilityBadge: string;
+  directContactTitle: string;
+  responseNote: string;
+  links: ContactLink[];
 }

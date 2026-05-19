@@ -1,4 +1,5 @@
 ---
+import { resumeUrl } from "@/data/contact";
 import { getDictionary } from "@/i18n/utils";
 import type { LangType } from "@/lib/interfaces";
 import { Badge } from "../ui/badge";
@@ -73,7 +74,7 @@ const highlightMetrics = (text: string) =>
           <Button size="lg">{section.workCta}</Button>
         </a>
         <a
-          href="https://rxresu.me/elpitagoras14/software-engineer-en"
+          href={resumeUrl}
           target="_blank"
           rel="noopener noreferrer"
         >

@@ -1,5 +1,6 @@
 ---
 import { ArrowRightIcon } from "lucide-react";
+import { getFeaturedProjects } from "@/data";
 import { getDictionary } from "@/i18n/utils";
 import type { LangType } from "@/lib/interfaces";
 import { Badge } from "../ui/badge";
@@ -9,6 +10,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "../ui/card";
 const { lang } = Astro.params as { lang: LangType };
 const dict = getDictionary(lang);
 const section = dict.homePage.workSection;
+const types = dict.projectsPage.types;
+const featuredProjects = getFeaturedProjects(lang);
 ---
 
 <div class="flex flex-col space-y-8">
@@ -24,7 +27,7 @@ const section = dict.homePage.workSection;
   </div>
   <div class="flex flex-col space-y-4">
     {
-      section.projects.map((project, i) => (
+      featuredProjects.map((project, i) => (
         <a
           href={`/${lang}/projects/${project.id}`}
           data-reveal
@@ -39,20 +42,20 @@ const section = dict.homePage.workSection;
           </div>
           <div class="flex flex-col space-y-3 p-5 md:p-6 flex-1">
             <div class="flex flex-wrap gap-2">
-              <Badge>{project.status}</Badge>
+              <Badge>{types[project.type]}</Badge>
               <Badge variant="outline">{project.year}</Badge>
             </div>
             <div class="space-y-1">
               <p class="text-lg md:text-xl font-semibold tracking-tight">
                 {project.title}
               </p>
-              <p class="text-muted-foreground text-sm">{project.subtitle}</p>
+              <p class="text-muted-foreground text-sm">{project.tagline}</p>
             </div>
             <p class="text-muted-foreground text-sm leading-relaxed">
-              {project.description}
+              {project.shortDescription}
             </p>
             <div class="flex flex-wrap gap-1.5">
-              {project.tags.map((tag) => (
+              {project.stack.slice(0, 3).map((tag) => (
                 <Badge variant="tech">{tag}</Badge>
               ))}
             </div>

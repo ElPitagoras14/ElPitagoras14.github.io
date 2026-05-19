@@ -1,8 +1,8 @@
 ---
-import type en from "@/i18n/locales/en.json";
+import type { ContactInfoDict } from "@/lib/interfaces";
 
 interface Props {
-  dict: typeof en.contactPage.info;
+  dict: ContactInfoDict;
 }
 
 const { dict } = Astro.props;

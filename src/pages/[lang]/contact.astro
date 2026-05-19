@@ -1,8 +1,10 @@
 ---
 import ContactForm from "@/components/contact/contact-form.tsx";
 import ContactInfo from "@/components/contact/contact-info.astro";
+import { getContactLinks } from "@/data";
 import { getDictionary } from "@/i18n/utils";
 import Main from "@/layouts/main.astro";
+import type { ContactInfoDict } from "@/lib/interfaces";
 
 export function getStaticPaths() {
   return [{ params: { lang: "en" } }, { params: { lang: "es" } }];
@@ -11,6 +13,9 @@ export function getStaticPaths() {
 const { lang } = Astro.params;
 const dict = getDictionary(lang as "en" | "es");
 const d = dict.contactPage;
+
+const links = getContactLinks(lang as "en" | "es");
+const info: ContactInfoDict = { ...d.info, links };
 
 const seoTitle = lang === "es" ? "Contacto" : "Contact";
 const seoDescription =
@@ -35,7 +40,7 @@ const seoDescription =
     <!-- Body: form + info panel -->
     <div class="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-12 md:gap-20 items-start">
       <ContactForm client:load dict={d.form} />
-      <ContactInfo dict={d.info} />
+      <ContactInfo dict={info} />
     </div>
   </div>
 </Main>

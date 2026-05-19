@@ -1,4 +1,7 @@
 {
+  "common": {
+    "present": "Presente"
+  },
   "navbar": {
     "home": "Inicio",
     "about": "Sobre Mí",
@@ -51,48 +54,7 @@
     "workSection": {
       "title": "Trabajo Seleccionado",
       "subtitle": "Proyectos Destacados",
-      "cta": "Ver proyecto",
-      "projects": [
-        {
-          "id": "ani-scrapy",
-          "title": "ani-scrapy",
-          "subtitle": "Librería Python publicada en PyPI",
-          "status": "Open Source",
-          "year": 2024,
-          "description": "Interfaz abstracta unificada para múltiples fuentes de scraping. Publicada en PyPI y usada como base para Ani Seek.",
-          "tags": [
-            "Python",
-            "PyPI",
-            "Web Scraping"
-          ]
-        },
-        {
-          "id": "anime-scraper",
-          "title": "Ani Seek",
-          "subtitle": "App full stack con scraping propio y despliegue automatizado",
-          "status": "Personal",
-          "year": 2025,
-          "description": "Búsqueda, exploración y descarga paralela de episodios. Pipeline Docker automatizado desde push hasta producción.",
-          "tags": [
-            "FastAPI",
-            "Next.js",
-            "Docker"
-          ]
-        },
-        {
-          "id": "home-lab",
-          "title": "Home Lab",
-          "subtitle": "Infraestructura on-premise de nivel productivo en 2 nodos",
-          "description": "Servidor local + VPS. VPN con Headscale, acceso seguro vía Cloudflare Tunnels, stack completo autoalojado.",
-          "status": "En Progreso",
-          "year": 2025,
-          "tags": [
-            "Docker",
-            "Dokploy",
-            "Nginx"
-          ]
-        }
-      ]
+      "cta": "Ver proyecto"
     },
     "careerSection": {},
     "contactSection": {
@@ -121,9 +83,8 @@
       "badge": "4+ años",
       "jobs": [
         {
-          "company": "Telconet LATAM",
+          "id": "telconet",
           "role": "Desarrollador de Software",
-          "period": "Ene 2024 - Presente",
           "location": "Guayaquil, Ecuador",
           "metric": "Plataforma interna · 10+ flujos · 120 hrs/mes eliminadas",
           "activities": [
@@ -134,9 +95,8 @@
           ]
         },
         {
-          "company": "Siemav",
+          "id": "siemav",
           "role": "Desarrollador Full Stack",
-          "period": "Ago 2023 - Ene 2024",
           "location": "Guayaquil, Ecuador",
           "metric": "Excel legado → visibilidad operativa en tiempo real",
           "activities": [
@@ -146,9 +106,8 @@
           ]
         },
         {
-          "company": "Shippify",
+          "id": "shippify",
           "role": "Desarrollador Full Stack Jr",
-          "period": "Sep 2022 - Feb 2023",
           "location": "Remoto, Latinoamérica",
           "metric": "Plataforma logística multinacional · Equipo distribuido en LATAM",
           "activities": [
@@ -158,9 +117,8 @@
           ]
         },
         {
-          "company": "Dátil",
+          "id": "datil",
           "role": "Pasante de Desarrollo de Software",
-          "period": "Feb 2022 - May 2022",
           "location": "Guayaquil, Ecuador",
           "metric": "Funcionalidades de facturación electrónica · Sistema en producción con Clojure",
           "activities": [
@@ -170,9 +128,8 @@
           ]
         },
         {
-          "company": "ESPOL",
+          "id": "espol-academic",
           "role": "Ayudante Académico de Análisis de Algoritmos",
-          "period": "May 2022 - Ago 2023",
           "location": "Guayaquil, Ecuador",
           "metric": "Enseñanza de algoritmos y mentoría en competencias",
           "activities": [
@@ -188,17 +145,15 @@
       "title": "Educación",
       "items": [
         {
+          "id": "msc-devops-unir",
           "degree": "MSc en DevOps",
-          "school": "UNIR",
           "location": "Remoto, España",
-          "period": "2025 - Presente",
           "description": "Especialización en el ciclo completo de entrega de software: CI/CD, contenedores, cloud computing, automatización de despliegues e infraestructura como código. Complementado con un módulo de IA aplicada al desarrollo de software y fundamentos de inteligencia artificial para ingenieros. Actualmente investigando un framework reproducible de IaC para despliegues automatizados de múltiples clusters K3s en paralelo."
         },
         {
+          "id": "cs-espol",
           "degree": "Ingeniería en Ciencias de la Computación",
-          "school": "ESPOL",
           "location": "Guayaquil, Ecuador",
-          "period": "May 2019 - Feb 2024",
           "description": "Formación integral en ciencias de la computación: algoritmos y estructuras de datos, sistemas operativos, arquitectura de computadores, ingeniería de software, sistemas distribuidos y computación en la nube, seguridad de la información e inteligencia artificial. Con énfasis en desarrollo web, móvil y gestión de proyectos informáticos."
         }
       ]
@@ -207,67 +162,11 @@
       "label": "Stack",
       "title": "Mi Caja de Herramientas",
       "categories": [
-        {
-          "title": "Lenguajes",
-          "skills": [
-            "Python",
-            "JavaScript",
-            "TypeScript",
-            "Java",
-            "C#"
-          ]
-        },
-        {
-          "title": "Web y Frontend",
-          "skills": [
-            "React",
-            "Next.js",
-            "Vue.js",
-            "Tailwind CSS",
-            "Tanstack",
-            "HTML5",
-            "Astro",
-            "Figma"
-          ]
-        },
-        {
-          "title": "Backend y Datos",
-          "skills": [
-            "Node.js",
-            "Express.js",
-            "FastAPI",
-            "PostgreSQL",
-            "MongoDB",
-            "MySQL",
-            "Redis",
-            "Message Queue"
-          ]
-        },
-        {
-          "title": "DevOps e Infraestructura",
-          "skills": [
-            "Docker",
-            "Kubernetes",
-            "ArgoCD",
-            "GitHub Actions",
-            "Terraform",
-            "Ansible",
-            "AWS",
-            "Nginx",
-            "Linux",
-            "On Premise"
-          ]
-        },
-        {
-          "title": "IA y Automatización",
-          "skills": [
-            "Gen AI",
-            "AI Agents",
-            "LLMs",
-            "LangChain",
-            "LangGraph"
-          ]
-        }
+        { "id": "languages", "title": "Lenguajes" },
+        { "id": "web-frontend", "title": "Web y Frontend" },
+        { "id": "backend-data", "title": "Backend y Datos" },
+        { "id": "devops-infra", "title": "DevOps e Infraestructura" },
+        { "id": "ai-automation", "title": "IA y Automatización" }
       ]
     },
     "awardsSection": {
@@ -276,43 +175,15 @@
       "awardsTitle": "Premios",
       "certificationsTitle": "Certificaciones",
       "awards": [
-        {
-          "title": "IEEE Xtreme 17.0 Ganador en Cuenca",
-          "issuer": "Programación competitiva internacional",
-          "date": "Octubre 2023"
-        },
-        {
-          "title": "Finalista Hackathon Devsu",
-          "issuer": "Devsu",
-          "date": "2022"
-        },
-        {
-          "title": "Miembro Senior de TAWS",
-          "issuer": "TAWS Club",
-          "date": "2021 - Presente"
-        }
+        { "id": "ieee-xtreme-17", "title": "IEEE Xtreme 17.0 Ganador en Cuenca" },
+        { "id": "devsu-hackathon-finalist", "title": "Finalista Hackathon Devsu" },
+        { "id": "taws-senior", "title": "Miembro Senior de TAWS" }
       ],
       "certifications": [
-        {
-          "title": "IBM Data Science Professional Specialization",
-          "issuer": "Coursera",
-          "date": "2025"
-        },
-        {
-          "title": "GitHub Foundations",
-          "issuer": "GitHub",
-          "date": "Febrero 2025"
-        },
-        {
-          "title": "PCAP Certified Associate Python Programmer",
-          "issuer": "Python Institute",
-          "date": "Enero 2025"
-        },
-        {
-          "title": "Salesforce Certified Platform Developer I",
-          "issuer": "Salesforce",
-          "date": "2023"
-        }
+        { "id": "ibm-data-science", "title": "IBM Data Science Professional Specialization" },
+        { "id": "github-foundations", "title": "GitHub Foundations" },
+        { "id": "pcap", "title": "PCAP Certified Associate Python Programmer" },
+        { "id": "salesforce-pd1", "title": "Salesforce Certified Platform Developer I" }
       ]
     }
   },
@@ -370,25 +241,9 @@
       {
         "id": "ani-scrapy",
         "title": "ani-scrapy",
-        "year": "2024",
-        "type": "openSource",
-        "status": "ongoing",
-        "madeAt": "Personal",
         "role": "Autor y Mantenedor de Librería",
         "tagline": "Librería de scraping en Python publicada en PyPI",
         "shortDescription": "Interfaz abstracta unificada para múltiples fuentes de anime.",
-        "stack": [
-          "Python",
-          "BeautifulSoup",
-          "Playwright",
-          "PyPI"
-        ],
-        "links": {
-          "github": "https://github.com/ElPitagoras14/ani-scrapy",
-          "live": "https://pypi.org/project/ani-scrapy",
-          "liveLabel": "PyPI"
-        },
-        "featured": true,
         "narrative": {
           "problem": "Veo anime con frecuencia pero los títulos que sigo rara vez están en plataformas de streaming, así que termino buscándolos en sitios alternativos. El problema: publicidad agresiva en cada paso, múltiples servidores de descarga para probar, y entre 25 y 45 segundos perdidos por capítulo solo en esperar anuncios. Multiplicado por un anime largo como One Piece, eso se vuelve inviable.",
           "approach": "Empecé con un script suelto en Python usando Playwright lo elegí sobre Selenium porque era más moderno y directo. Al principio era inestable: el manejo de renderizado dinámico y la publicidad fallaban seguido. Fui iterando: agregué lógica de reintento, integré Stealth y cambié al navegador Brave para evadir detección de bots. El punto de quiebre fue cuando quise agregar una segunda página mi código se rompía porque todo estaba atado al primer sitio. Ahí decidí extraerlo como librería con una interfaz común, para que cambiar o agregar una fuente no fuera un dolor de cabeza. Para cerrar el ciclo, configuré un pipeline con GitHub Actions que publica automáticamente una nueva versión en PyPI cada vez que hago un release cualquiera puede instalarla con un simple `pip install`.",
@@ -398,27 +253,9 @@
       {
         "id": "aniseek",
         "title": "Ani Seek",
-        "year": "2025",
-        "type": "personal",
-        "status": "ongoing",
-        "madeAt": "Personal",
         "role": "Desarrollador Fullstack y Diseñador UX/UI",
         "tagline": "App full stack con scraping propio y despliegue automatizado",
         "shortDescription": "Interfaz web para buscar, explorar y descargar anime en paralelo. Construida sobre ani-scrapy.",
-        "stack": [
-          "FastAPI",
-          "Next.js",
-          "PostgreSQL",
-          "Docker",
-          "Redis",
-          "JWT"
-        ],
-        "links": {
-          "github": "https://github.com/ElPitagoras14/aniseek",
-          "live": null,
-          "liveLabel": null
-        },
-        "featured": true,
         "narrative": {
           "problem": "ani-scrapy resolvía la descarga, pero usarla seguía siendo cosa de programadores: invocar funciones manualmente, manejar estructuras de datos complejas en consola, sin forma de encolar descargas ni de saber qué capítulos ya tenía. Quería algo que cualquier persona pudiera usar sin tocar una línea de código.",
           "approach": "El objetivo era claro: una interfaz web con buena UX que abstrajera todo lo que ani-scrapy hacía por debajo. Usé tecnologías que ya conocía para enfocarme en la lógica nueva. Para las barras de progreso de descarga empecé con polling constante sabía que era ineficiente pero era rápido de implementar. Investigando descubrí SSE, que resultó ser exactamente lo que necesitaba: el servidor empuja actualizaciones en tiempo real sin el overhead de WebSockets. Para las descargas en sí, que son procesos pesados, implementé colas de trabajo primero con Celery, luego migré a Dramatiq por ser una alternativa más moderna y simple. El despliegue fue otro aprendizaje: fue el primer proyecto que desplegué en mi home lab con un pipeline completo verificación de cambios, construcción y publicación de imágenes Docker, y un webhook a Dokploy que dispara el despliegue automáticamente.",
@@ -428,27 +265,9 @@
       {
         "id": "home-lab",
         "title": "Home Lab",
-        "year": "2025",
-        "type": "ongoing",
-        "status": "ongoing",
-        "madeAt": "Personal",
         "role": "Ingeniero de Infraestructura",
         "tagline": "Infraestructura autoalojada de grado productivo en 2 nodos",
         "shortDescription": "Servidor local + VPS de Oracle. Stack completo autoalojado y en contenedores.",
-        "stack": [
-          "Docker",
-          "Dokploy",
-          "Nginx",
-          "Headscale",
-          "Cloudflare Tunnels",
-          "Ansible"
-        ],
-        "links": {
-          "github": null,
-          "live": null,
-          "liveLabel": null
-        },
-        "featured": true,
         "narrative": {
           "problem": "No había un problema que resolver había una mini PC sin usar y ganas de aprender. Quería un lugar propio donde desplegar mis proyectos, experimentar con tecnologías y correr aplicaciones que uso a diario como Immich, Jellyfin, n8n o un servidor de Minecraft, sin depender de servicios externos.",
           "approach": "Empecé con CasaOS porque era lo más accesible para alguien nuevo en self-hosting: buena interfaz y un marketplace que abstraía toda la configuración de Docker Compose. Funcionaba bien para aplicaciones estándar, pero en cuanto quise desplegar Ani Seek me topé con sus límites: poca flexibilidad para soluciones custom y monitoreo muy básico. Migré a Dokploy, que estaba más orientado a desarrolladores: pipelines de despliegue automático, gestión de variables de entorno, logs en tiempo real y soporte completo para Docker Compose personalizado.\n\nPara exposición pública, mi primer enfoque fue Cloudflare Tunnels creaba manualmente cada subdominio apuntando directo al puerto del contenedor. Funcionaba, pero no escalaría. Luego conseguí una VPS gratuita en Oracle y un dominio gratuito con DigitalPlat. Al querer aplicar Cloudflare Tunnels en la VPS, la documentación me aclaró que no era necesario porque la VPS ya tiene IP pública y de paso descubrí cómo configurarlo correctamente: apuntar el tunnel a Traefik y dejar que Dokploy gestione el ruteo de subdominios. Hoy tengo dos instancias de Dokploy una pública con IP directa y otra privada con Cloudflare Tunnels cada una con su propio dominio.",
@@ -458,24 +277,9 @@
       {
         "id": "ppl-adventure",
         "title": "PPL Adventure",
-        "year": "2023",
-        "type": "clubProject",
-        "status": "completed",
-        "madeAt": "TAWS Club · ESPOL",
         "role": "Mentor y Diseñador de Juegos",
         "tagline": "Juego de Unity creado para el proceso de admisión del Club TAWS",
         "shortDescription": "Juego 2D de Unity ambientado en el campus de la ESPOL. Mentoricé al equipo durante la ejecución.",
-        "stack": [
-          "Unity",
-          "C#",
-          "Git"
-        ],
-        "links": {
-          "github": "https://github.com/Taws-Espol/PreTawsG5-Unity",
-          "live": null,
-          "liveLabel": null
-        },
-        "featured": false,
         "narrative": {
           "problem": "El Club TAWS necesitaba un proyecto para su proceso de admisión que pusiera a prueba qué tan bien podían ejecutar bajo guía los nuevos candidatos. El desafío fue diseñar algo con alcance suficiente para completarse en el tiempo disponible, pero lo bastante complejo para revelar cómo los candidatos piensan y colaboran.",
           "approach": "Diseñé el concepto del juego y guié al equipo en la ejecución en lugar de construirlo yo mismo. El juego está ambientado en el campus de la ESPOL y desarrollado con Unity y C#. Mi rol fue definir el alcance, desbloquear al equipo cuando chocaban con obstáculos técnicos y asegurar la entrega del proyecto no escribir el código.",
@@ -485,24 +289,9 @@
       {
         "id": "subnetting",
         "title": "Subnetting",
-        "year": "2022",
-        "type": "personal",
-        "status": "completed",
-        "madeAt": "Personal",
         "role": "Desarrollador Frontend",
         "tagline": "Calculadora de subredes FLSM y VLSM",
         "shortDescription": "Herramienta web para segmentación de IPs usando técnicas FLSM y VLSM.",
-        "stack": [
-          "React",
-          "Next.js",
-          "TypeScript"
-        ],
-        "links": {
-          "github": "https://github.com/ElPitagoras14/subnetting-static-web",
-          "live": null,
-          "liveLabel": null
-        },
-        "featured": false,
         "narrative": {
           "problem": "Los cálculos de subredes son tediosos de hacer a mano y las herramientas existentes tenían una UX deficiente. También fue uno de mis primeros proyectos con React y Next.js así que el problema era tanto aprender el stack como construir algo útil.",
           "approach": "Implementé los algoritmos FLSM y VLSM y construí una interfaz web estática en Next.js para exponerlos. El foco estuvo en presentar los resultados con claridad un desglose paso a paso para que el usuario entienda el proceso, no solo obtenga un número.",
@@ -512,27 +301,9 @@
       {
         "id": "urbapass-backend",
         "title": "Urbapass Backend",
-        "year": "2022",
-        "type": "personal",
-        "status": "completed",
-        "madeAt": "Personal",
         "role": "Desarrollador Backend",
         "tagline": "API REST para control de acceso en complejos residenciales",
         "shortDescription": "Backend de control de acceso que gestiona residentes, visitantes y registros de entrada.",
-        "stack": [
-          "Node.js",
-          "Express",
-          "MongoDB",
-          "MySQL",
-          "Sequelize",
-          "JWT"
-        ],
-        "links": {
-          "github": "https://github.com/ElPitagoras14/backend-urbapass",
-          "live": null,
-          "liveLabel": null
-        },
-        "featured": false,
         "narrative": {
           "problem": "Urbapass necesitaba un backend para gestionar el control de acceso en un complejo residencial residentes, visitantes, registros de entradas y notificaciones. El reto fue diseñar un modelo de datos lo suficientemente flexible para manejar distintos tipos de usuarios y reglas de acceso.",
           "approach": "Construí una API RESTful con Node.js y Express, usando MySQL (datos relacionales: usuarios, unidades, reglas de acceso) y MongoDB (registros y eventos que no encajaban en un esquema rígido). JWT gestionó la autenticación. Sequelize como ORM para el lado relacional.",
@@ -575,24 +346,9 @@
       "directContactTitle": "O contáctame directamente",
       "responseNote": "Tiempo promedio de respuesta: menos de 48 horas. Para asuntos urgentes, el correo es más rápido.",
       "links": [
-        {
-          "id": "email",
-          "label": "jhony-2001-2011@outlook.com",
-          "href": "mailto:jhony-2001-2011@outlook.com",
-          "icon": "Mail"
-        },
-        {
-          "id": "github",
-          "label": "github.com/ElPitagoras14",
-          "href": "https://github.com/ElPitagoras14",
-          "icon": "Github"
-        },
-        {
-          "id": "linkedin",
-          "label": "linkedin.com/in/jfgarciaa",
-          "href": "https://www.linkedin.com/in/jfgarciaa",
-          "icon": "Linkedin"
-        }
+        { "id": "email", "label": "jhony-2001-2011@outlook.com" },
+        { "id": "github", "label": "github.com/ElPitagoras14" },
+        { "id": "linkedin", "label": "linkedin.com/in/jfgarciaa" }
       ]
     }
   }

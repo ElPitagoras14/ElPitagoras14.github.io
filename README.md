@@ -1,36 +1,27 @@
-# Astro + React + TypeScript + shadcn/ui
+# ElPitagoras14.github.io
 
-This is a template for a new Astro project with React, TypeScript, and shadcn/ui.
+Personal portfolio showcasing professional experience, projects, and skills. Available in English and Spanish, deployed on GitHub Pages.
 
-## Adding components
+## Stack
 
-To add components to your app, run the following command:
+- **Framework**: Astro 5 + React 19
+- **Styling**: Tailwind CSS 4 + shadcn/ui
+- **Language**: TypeScript
+- **Forms**: TanStack React Form + Zod
+- **Linting**: Biome
+- **Package manager**: pnpm
 
-```bash
-npx shadcn@latest add button
-```
+## Sections
 
-This will place the ui components in the `src/components` directory.
+- **Home** — Hero with terminal typing animation, value proposition, and featured work
+- **About** — Professional experience, education, skills by category, awards & certifications
+- **Projects** — Filterable table and detail pages with image gallery for each project
+- **Contact** — Validated contact form and availability status
 
-## Using components
+## i18n
 
-To use the components in your app, import them in an `.astro` file:
+Full English/Spanish support via Astro's i18n routing. English is the default (no URL prefix). Spanish is available under `/es/`.
 
-```astro
----
-import { Button } from "@/components/ui/button"
----
+## Deployment
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width" />
-    <title>Astro App</title>
-  </head>
-  <body>
-    <div class="grid h-screen place-items-center content-center">
-      <Button>Button</Button>
-    </div>
-  </body>
-</html>
-```
+Automatically deployed to GitHub Pages on every push to `main` via GitHub Actions.

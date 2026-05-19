@@ -5,6 +5,7 @@ import ProjectGallery from "@/components/projects/project-gallery";
 import ProjectMetaCard from "@/components/projects/project-meta-card.astro";
 import ProjectNarrative from "@/components/projects/project-narrative.astro";
 import ProjectNav from "@/components/projects/project-nav.astro";
+import { getProjects } from "@/data";
 import { getDictionary } from "@/i18n/utils";
 import Layout from "@/layouts/main.astro";
 import type {
@@ -19,14 +20,14 @@ interface ProjectsPageDict {
   listView: ListViewDict;
   detailView: DetailViewDict;
   types: TypesDict;
-  projects: Project[];
 }
 
 export function getStaticPaths() {
   const langs: LangType[] = ["en", "es"];
   return langs.flatMap((lang) => {
+    const projects = getProjects(lang);
     const d = getDictionary(lang).projectsPage as unknown as ProjectsPageDict;
-    return d.projects.map((project) => ({
+    return projects.map((project) => ({
       params: { lang, slug: project.id },
       props: { project, dict: d },
     }));
@@ -39,7 +40,7 @@ const { project, dict } = Astro.props as {
   dict: ProjectsPageDict;
 };
 const d = dict.detailView;
-const all = dict.projects;
+const all = getProjects(lang);
 const idx = all.findIndex((p) => p.id === slug);
 const prev = all[(idx - 1 + all.length) % all.length];
 const next = all[(idx + 1) % all.length];

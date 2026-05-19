@@ -1,9 +1,10 @@
 ---
 import ProjectsTable from "@/components/projects/projects-table";
 import { buttonVariants } from "@/components/ui/button";
+import { getProjects } from "@/data";
 import { getDictionary } from "@/i18n/utils";
 import Layout from "@/layouts/main.astro";
-import type { LangType, Project } from "@/lib/interfaces";
+import type { LangType } from "@/lib/interfaces";
 
 export function getStaticPaths(): { params: { lang: LangType } }[] {
   return [{ params: { lang: "en" } }, { params: { lang: "es" } }];
@@ -12,7 +13,7 @@ export function getStaticPaths(): { params: { lang: LangType } }[] {
 const { lang } = Astro.params as { lang: LangType };
 const dict = getDictionary(lang);
 const d = dict.projectsPage;
-const projects = d.projects as Project[];
+const projects = getProjects(lang);
 
 const seoTitle = lang === "es" ? "Proyectos" : "Projects";
 const seoDescription =

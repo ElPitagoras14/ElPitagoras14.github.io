@@ -1,6 +1,7 @@
 ---
 import { ExperienceAccordion } from "@/components/about/experience-accordion";
 import { Badge } from "@/components/ui/badge";
+import { getExperience } from "@/data";
 import { getDictionary } from "@/i18n/utils";
 import type { LangType } from "@/lib/interfaces";
 
@@ -11,10 +12,10 @@ interface Props {
 const { lang } = Astro.props;
 const dict = getDictionary(lang);
 const section = dict.aboutPage.experienceSection;
+const jobs = getExperience(lang);
 ---
 
 <div class="space-y-6">
-  <!-- Section header — plain style -->
   <div class="space-y-3">
     <p class="text-xs uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 font-medium">{section.label}</p>
     <div class="flex items-center gap-3 flex-wrap">
@@ -23,6 +24,5 @@ const section = dict.aboutPage.experienceSection;
     </div>
   </div>
 
-  <!-- Accordion list — no outer wrapper bg -->
-  <ExperienceAccordion client:load jobs={section.jobs} />
+  <ExperienceAccordion client:load jobs={jobs} />
 </div>

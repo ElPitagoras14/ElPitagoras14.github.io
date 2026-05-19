@@ -40,9 +40,9 @@ export default function ContactForm({ dict }: Props) {
   );
 
   const formSchema = z.object({
-    name: z.string().min(2,  dict.name.error ),
-    email: z.string().email( dict.email.error ),
-    message: z.string().min(10,  dict.message.error ),
+    name: z.string().min(2, dict.name.error),
+    email: z.string().email(dict.email.error),
+    message: z.string().min(10, dict.message.error),
   });
 
   const form = useForm({
@@ -105,11 +105,7 @@ export default function ContactForm({ dict }: Props) {
                   aria-invalid={isInvalid}
                   className="h-10 px-3 text-sm"
                 />
-                {isInvalid && (
-                  <FieldError
-                    errors={field.state.meta.errors}
-                  />
-                )}
+                {isInvalid && <FieldError errors={field.state.meta.errors} />}
               </Field>
             );
           }}
@@ -138,11 +134,7 @@ export default function ContactForm({ dict }: Props) {
                   aria-invalid={isInvalid}
                   className="h-10 px-3 text-sm"
                 />
-                {isInvalid && (
-                  <FieldError
-                    errors={field.state.meta.errors}
-                  />
-                )}
+                {isInvalid && <FieldError errors={field.state.meta.errors} />}
               </Field>
             );
           }}
@@ -171,11 +163,7 @@ export default function ContactForm({ dict }: Props) {
                   aria-invalid={isInvalid}
                   className="min-h-32 px-3 py-2.5 text-sm"
                 />
-                {isInvalid && (
-                  <FieldError
-                    errors={field.state.meta.errors}
-                  />
-                )}
+                {isInvalid && <FieldError errors={field.state.meta.errors} />}
               </Field>
             );
           }}
