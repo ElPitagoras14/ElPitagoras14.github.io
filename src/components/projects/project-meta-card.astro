@@ -1,0 +1,69 @@
+---
+import { ExternalLinkIcon } from "lucide-react";
+import { GithubIcon } from "@/components/icons/github";
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import type { DetailViewDict, Project, TypesDict } from "@/lib/interfaces";
+
+interface Props {
+  project: Project;
+  dict: DetailViewDict;
+  types: TypesDict;
+}
+
+const { project, dict, types } = Astro.props;
+
+const facts = [
+  { label: dict.labels.role, value: project.role },
+  { label: dict.labels.madeAt, value: project.madeAt },
+  { label: dict.labels.year, value: project.year },
+];
+---
+
+<Card className="sticky top-24 py-6">
+  <CardContent className="px-6">
+    <dl class="space-y-6">
+      {
+        facts.map((fact) => (
+          <div class="space-y-1">
+            <dt class="text-[0.7rem] uppercase tracking-[0.18em] text-blue-600 dark:text-blue-400 font-medium">
+              {fact.label}
+            </dt>
+            <dd class="text-sm font-medium">{fact.value}</dd>
+          </div>
+        ))
+      }
+
+      <div class="space-y-1.5">
+        <dt
+          class="text-[0.7rem] uppercase tracking-[0.18em] text-blue-600 dark:text-blue-400 font-medium"
+        >
+          {dict.labels.status}
+        </dt>
+        <dd>
+          <Badge className="px-2.5 py-1" variant="outline"
+            >{types[project.status]}</Badge
+          >
+        </dd>
+      </div>
+
+      <div class="space-y-2 pt-2 border-t border-foreground/10">
+        <dt
+          class="text-[0.7rem] uppercase tracking-[0.18em] text-blue-600 dark:text-blue-400 font-medium pt-4"
+        >
+          {dict.labels.stack}
+        </dt>
+        <dd class="flex flex-wrap gap-1.5">
+          {
+            project.stack.map((tech) => (
+              <Badge variant="tech" className="px-2 py-1">
+                {tech}
+              </Badge>
+            ))
+          }
+        </dd>
+      </div>
+    </dl>
+  </CardContent>
+</Card>

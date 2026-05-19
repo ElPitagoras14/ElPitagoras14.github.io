@@ -1,0 +1,30 @@
+---
+import Awards from "@/components/about/awards.astro";
+import Education from "@/components/about/education.astro";
+import Experience from "@/components/about/experience.astro";
+import Profile from "@/components/about/profile.astro";
+import Skills from "@/components/about/skills.astro";
+import Main from "@/layouts/main.astro";
+import type { LangType } from "@/lib/interfaces";
+
+export function getStaticPaths(): { params: { lang: "en" | "es" } }[] {
+  return [{ params: { lang: "en" } }, { params: { lang: "es" } }];
+}
+
+const { lang } = Astro.params as { lang: LangType };
+const seoTitle = lang === "es" ? "Sobre mí" : "About";
+const seoDescription =
+  lang === "es"
+    ? "Trayectoria, educación, stack técnico y reconocimientos de Jonathan García — Software Engineer en Ecuador."
+    : "Career, education, technical stack, and recognitions for Jonathan García — Software Engineer based in Ecuador.";
+---
+
+<Main lang={lang} title={seoTitle} description={seoDescription}>
+  <div class="max-w-5xl mx-auto px-6 md:px-10 py-16 md:py-24 space-y-24 md:space-y-32">
+    <div data-reveal><Profile lang={lang} /></div>
+    <div data-reveal><Experience lang={lang} /></div>
+    <div data-reveal><Education lang={lang} /></div>
+    <div data-reveal><Skills lang={lang} /></div>
+    <div data-reveal><Awards lang={lang} /></div>
+  </div>
+</Main>

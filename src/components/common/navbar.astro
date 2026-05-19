@@ -1,0 +1,145 @@
+---
+import { Button } from "@/components/ui/button";
+import { getDictionary } from "@/i18n/utils";
+import type { LangType } from "@/lib/interfaces";
+
+const pathname = Astro.url.pathname.replace(/\/$/, "") || "/";
+const paramLang = (Astro.params as { lang?: LangType }).lang;
+const lang: LangType = paramLang ?? (pathname.startsWith("/es") ? "es" : "en");
+const dict = getDictionary(lang);
+const section = dict.navbar;
+const base = `/${lang}`;
+
+const links = [
+  { href: base, label: section.home, match: base },
+  { href: `${base}/about`, label: section.about, match: `${base}/about` },
+  {
+    href: `${base}/projects`,
+    label: section.projects,
+    match: `${base}/projects`,
+  },
+  { href: `${base}/contact`, label: section.contact, match: `${base}/contact` },
+];
+
+const isActive = (matchPath: string) => {
+  if (matchPath === base) return pathname === base;
+  return pathname === matchPath || pathname.startsWith(`${matchPath}/`);
+};
+
+const otherLang: LangType = lang === "es" ? "en" : "es";
+const swapPath = pathname.replace(new RegExp(`^/${lang}`), `/${otherLang}`);
+---
+
+<nav class="border-b border-foreground/10 backdrop-blur-md bg-background/70 sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 md:px-10 flex flex-row justify-between items-center py-4 gap-4">
+    <a href={`/${lang}`} class="font-medium text-xl tracking-tight">
+      Jonathan <span class="text-blue-600 dark:text-blue-400">García</span>
+    </a>
+
+    <div class="hidden md:flex flex-row items-center gap-1">
+      {links.map((link) => {
+        const active = isActive(link.match);
+        return (
+          <a
+            href={link.href}
+            class:list={[
+              "relative px-3 py-2 rounded-md text-sm font-medium transition-colors",
+              active
+                ? "text-foreground"
+                : "text-muted-foreground hover:text-foreground",
+            ]}
+          >
+            {link.label}
+            {active && (
+              <span class="absolute left-3 right-3 -bottom-4.25 h-px bg-blue-400"></span>
+            )}
+          </a>
+        );
+      })}
+    </div>
+
+    <div class="flex flex-row items-center gap-2">
+      <!-- Language selector -->
+      <a href={swapPath} aria-label={`Switch to ${otherLang.toUpperCase()}`}>
+        <Button
+          variant="outline"
+          size="lg"
+          tabIndex={-1}
+          className="font-mono text-xs uppercase tracking-widest"
+        >
+          {otherLang.toUpperCase()}
+        </Button>
+      </a>
+
+      <!-- Theme toggle -->
+      <!-- <Button
+        id="theme-toggle"
+        type="button"
+        variant="outline"
+        size="icon-lg"
+        aria-label="Toggle theme"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="hidden dark:block">
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2" />
+          <path d="M12 20v2" />
+          <path d="m4.93 4.93 1.41 1.41" />
+          <path d="m17.66 17.66 1.41 1.41" />
+          <path d="M2 12h2" />
+          <path d="M20 12h2" />
+          <path d="m6.34 17.66-1.41 1.41" />
+          <path d="m19.07 4.93-1.41 1.41" />
+        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dark:hidden">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+        </svg>
+      </Button> -->
+    </div>
+  </div>
+
+  <!-- Mobile links (simple row, no animation) -->
+  <div class="md:hidden border-t border-foreground/10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-row items-center gap-1 py-2 overflow-x-auto">
+      {links.map((link) => {
+        const active = isActive(link.match);
+        return (
+          <a
+            href={link.href}
+            class:list={[
+              "px-3 py-1.5 rounded-md text-sm font-medium transition-colors whitespace-nowrap",
+              active
+                ? "text-foreground bg-foreground/5"
+                : "text-muted-foreground hover:text-foreground",
+            ]}
+          >
+            {link.label}
+          </a>
+        );
+      })}
+    </div>
+  </div>
+</nav>
+
+<script is:inline>
+  (function () {
+    const KEY = "theme";
+    function applyTheme(t) {
+      const root = document.documentElement;
+      if (t === "light") root.classList.remove("dark");
+      else root.classList.add("dark");
+    }
+    const stored = localStorage.getItem(KEY);
+    if (stored === "light" || stored === "dark") applyTheme(stored);
+
+    document.addEventListener("click", function (e) {
+      const target = e.target;
+      if (!(target instanceof Element)) return;
+      const btn = target.closest("#theme-toggle");
+      if (!btn) return;
+      const isDark = document.documentElement.classList.contains("dark");
+      const next = isDark ? "light" : "dark";
+      applyTheme(next);
+      localStorage.setItem(KEY, next);
+    });
+  })();
+</script>

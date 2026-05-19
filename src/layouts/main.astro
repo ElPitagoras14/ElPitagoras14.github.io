@@ -1,16 +1,125 @@
 ---
+import Footer from "@/components/common/footer.astro";
+import Navbar from "@/components/common/navbar.astro";
 import "@/styles/global.css";
+
+interface Props {
+  lang: string;
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: "website" | "article";
+  canonical?: string;
+}
+
+const {
+  lang = "en",
+  title,
+  description,
+  image = "/favicon.svg",
+  type = "website",
+  canonical,
+} = Astro.props;
+
+const SITE_NAME = "Jonathan García";
+const TAGLINE_ES = "Ingeniero de Software · Web, Automatización & DevOps";
+const TAGLINE_EN = "Software Engineer · Web, Automation & DevOps";
+const DEFAULT_DESCRIPTION_ES =
+  "Portafolio de Jonathan García: 3+ años construyendo sistemas en producción, automatización de infraestructura y DevOps.";
+const DEFAULT_DESCRIPTION_EN =
+  "Jonathan García's portfolio: 3+ years building production systems, infrastructure automation, and DevOps.";
+
+const pageTitle = title
+  ? `${title} · ${SITE_NAME}`
+  : `${SITE_NAME} · ${lang === "es" ? TAGLINE_ES : TAGLINE_EN}`;
+const pageDescription =
+  description ??
+  (lang === "es" ? DEFAULT_DESCRIPTION_ES : DEFAULT_DESCRIPTION_EN);
+
+const canonicalUrl =
+  canonical ?? new URL(Astro.url.pathname, Astro.site ?? Astro.url).toString();
+const imageUrl = new URL(image, Astro.site ?? Astro.url).toString();
 ---
 
-<html lang="en" class="dark">
+<html lang={lang} class="dark">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>Jonathan García | Software Engineer</title>
-    <meta name="description" content="Software Engineer specializing in Web Applications, Infrastructure Automation & DevOps" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta name="author" content={SITE_NAME} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={type} />
+    <meta property="og:site_name" content={SITE_NAME} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={imageUrl} />
+    <meta property="og:locale" content={lang === "es" ? "es_ES" : "en_US"} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={imageUrl} />
+
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme");
+          if (stored === "light") document.documentElement.classList.remove("dark");
+        } catch (_) {}
+      })();
+    </script>
   </head>
-  <body class="min-h-screen bg-background antialiased">
-    <slot />
+  <body>
+    <a
+      href="#main"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:px-4 focus:py-2 focus:rounded-md focus:bg-blue-500 focus:text-white focus:ring-2 focus:ring-blue-300"
+    >
+      Skip to content
+    </a>
+    <Navbar lang={lang} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+    <script is:inline>
+      (function () {
+        if (typeof window === "undefined") return;
+        if (!("IntersectionObserver" in window)) {
+          document.querySelectorAll("[data-reveal]").forEach(function (el) {
+            el.setAttribute("data-revealed", "true");
+          });
+          return;
+        }
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.setAttribute("data-revealed", "true");
+              io.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+
+        function bind() {
+          document
+            .querySelectorAll("[data-reveal]:not([data-revealed])")
+            .forEach(function (el) {
+              io.observe(el);
+            });
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", bind);
+        } else {
+          bind();
+        }
+      })();
+    </script>
   </body>
 </html>

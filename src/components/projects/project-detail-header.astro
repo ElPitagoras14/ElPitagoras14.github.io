@@ -1,0 +1,69 @@
+---
+import { ExternalLinkIcon } from "lucide-react";
+import { GithubIcon } from "@/components/icons/github";
+import { Badge } from "@/components/ui/badge";
+import { buttonVariants } from "@/components/ui/button";
+import { Separator } from "@/components/ui/separator";
+import type { DetailViewDict, Project, TypesDict } from "@/lib/interfaces";
+
+interface Props {
+  project: Project;
+  dict: DetailViewDict;
+  types: TypesDict;
+}
+
+const { project, types } = Astro.props;
+---
+
+<div class="space-y-5">
+  <div class="flex flex-wrap gap-2">
+    <Badge variant="outline" className="p-3">{types[project.type]}</Badge>
+    <Badge variant="outline" className="p-3">{project.year}</Badge>
+  </div>
+  <h1 class="text-3xl md:text-5xl font-semibold tracking-tight leading-tight">
+    {project.title}
+  </h1>
+  <p
+    class="text-base md:text-lg text-muted-foreground leading-relaxed max-w-2xl"
+  >
+    {project.tagline}
+  </p>
+  <Separator />
+  <div class="flex flex-wrap gap-1">
+    {
+      project.stack.map((tech) => (
+        <Badge variant="tech" className="p-3">
+          {tech}
+        </Badge>
+      ))
+    }
+  </div>
+  <div class="flex flex-wrap gap-2 pt-2">
+    {
+      project.links.github && (
+        <a
+          href={project.links.github}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={buttonVariants({ variant: "outline", size: "lg" })}
+        >
+          <GithubIcon className="w-4 h-4" />
+          GitHub
+        </a>
+      )
+    }
+    {
+      project.links.live && (
+        <a
+          href={project.links.live}
+          target="_blank"
+          rel="noopener noreferrer"
+          class={buttonVariants({ variant: "outline", size: "lg" })}
+        >
+          <ExternalLinkIcon className="w-4 h-4" />
+          {project.links.liveLabel}
+        </a>
+      )
+    }
+  </div>
+</div>
