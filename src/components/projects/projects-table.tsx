@@ -141,7 +141,7 @@ export default function ProjectsTable({ projects, lang, dict, types }: Props) {
                           aria-label="GitHub"
                         >
                           <a
-                            href={project.links.github}
+                            href={project.links.github || ""}
                             target="_blank"
                             rel="noopener noreferrer"
                           >
@@ -197,7 +197,7 @@ export default function ProjectsTable({ projects, lang, dict, types }: Props) {
 
                   {/* Content overlay */}
                   <div className="absolute inset-0 flex flex-col items-center justify-center gap-2 px-4 text-center">
-                    <span className="font-mono text-lg md:text-xl font-semibold tracking-tight text-foreground">
+                    <span className="font-mono text-lg md:text-xl font-semibold tracking-tight text-blue-700 dark:text-blue-300/90">
                       {project.id}
                     </span>
                   </div>
@@ -223,7 +223,7 @@ export default function ProjectsTable({ projects, lang, dict, types }: Props) {
                       aria-label="GitHub"
                     >
                       <a
-                        href={project.links.github}
+                        href={project.links.github || ""}
                         target="_blank"
                         rel="noopener noreferrer"
                       >
